@@ -116,7 +116,13 @@ body, html {
     
 }
 
-.foodPics {
+.foodPics1 {
+    height: 100px;
+    width: 100px;
+    margin-bottom: 20px;
+}
+
+.foodPics2 {
     height: 100px;
     width: 100px;
     margin-bottom: 20px;
@@ -242,7 +248,7 @@ span.psw {
 }
 
 /* Change styles for span and cancel button on extra small screens */
-@media screen and (max-width: 300px) {
+@media screen and (max-width: 600px) {
     span.psw {
        display: block;
        float: none;
@@ -250,10 +256,22 @@ span.psw {
     .cancelbtn {
        width: 100%;
     }
+
+    img.foodPics2{
+        display: none;
+    }
+    
+    #title {
+        font-size: 40px;
+        letter-spacing: 30px;
+    }
+    
+   
 }
 
 .refinements {
     width:15%;
+    margin: 15px;
 }
 
 #iconCred {
