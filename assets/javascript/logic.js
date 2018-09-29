@@ -9,17 +9,40 @@
 
 let edamAppID = "ed77f616"
 let edamApiKey = "976bea25ef3c24d77968f5c1879d9012"
-let food = "pizza";
-let dietRestrictions = "";
-let healthRestrictions = "";
+let food = "";
+let dietRestrictions = [];
+let healthRestrictions = [];
 
-let url = `https://api.edamam.com/search?app_id=${edamAppID}&app_key=${edamApiKey}&q=${food}`
-
-// Make API call when food search form is submitted
+// Make API calls when food search form is submitted
 $("#foodSubmit").on("click", function (event) {
     event.preventDefault();
+
+    // Get info from food form
+    food = $("#exampleFoodInput").val()
+
+    if ( $("#noNut").is(":checked") ) {
+        healthRestrictions.push("peanut-free")
+    }
+    if ( $("#noShell").is(":checked") ) {
+        // Free Edamam doesn't support shellfish restriction
+        // healthRestrictions.push("shellfish-free")
+    }
+    if ( $("#vegetarian").is(":checked") ) {
+        healthRestrictions.push("vegetarian")
+    }
     
-    $.ajax(url, {
+    // Basic query
+    let edamURL = `https://api.edamam.com/search?app_id=${edamAppID}&app_key=${edamApiKey}&q=${food}`
+    // Add additional flags as necessary
+    if (healthRestrictions.length>0) {
+        // Only supporting Peanut allergy for now
+        if (healthRestrictions.contains("peanut-free")){
+            edamURL += "&health="+"peanut-free"
+        }
+    }
+
+    // Edamam API call
+    $.ajax(edamURL, {
         method: "GET"
     }).then(function(stuff) {
         recipes = stuff.hits
