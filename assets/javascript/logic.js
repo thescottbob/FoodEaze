@@ -16,7 +16,9 @@ let healthRestrictions = "";
 let url = `https://api.edamam.com/search?app_id=${edamAppID}&app_key=${edamApiKey}&q=${food}`
 
 // Make API call when food search form is submitted
-$("#foodSubmit").on("click", function () {
+$("#foodSubmit").on("click", function (event) {
+    event.preventDefault();
+    
     $.ajax(url, {
         method: "GET"
     }).then(function(stuff) {
