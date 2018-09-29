@@ -8,45 +8,124 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
-    <title>FoodEaze</title>
+	<title>FoodEaze</title>
+	<link rel="icon" type="image/png" href="assets/images/apple.png">
+	<link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
   </head>
   <body>
-        <div class="jumbotron jumbotron-fluid">
-                <div class="container">
-                  <h1 class="display-4">FoodEaze</h1>
-                  <p class="lead">A place to make, deliver or go out for your favorite foods</p>
-                </div>
-              </div>
-    <h1>FoodEaze</h1>
+	
+		<div class="navbar">
+				<p id="lilTitle">FOODEAZE</p>
+				
+				<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
+
+					<div id="id01" class="modal">
+					
+					<form class="modal-content animate" action="/action_page.php">
+						<div class="imgcontainer">
+								<p id="lilTitle2">FOODEAZE</p>
+						</div>
+
+						<div class="container">
+						<label for="uname"><b>Username</b></label>
+						<input type="text" placeholder="Enter Username" name="uname" required>
+
+						<label for="psw"><b>Password</b></label>
+						<input type="password" placeholder="Enter Password" name="psw" required>
+							
+						<button type="submit">Login</button>
+						<label>
+							<input type="checkbox" checked="checked" name="remember"> Remember me
+						</label>
+						</div>
+
+						<div class="container" style="background-color:#f1f1f1">
+						<button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+						<span class="psw"><a href="http:www.google.com"> Forgot password? </a></span>
+						</div>
+					</form>
+					</div>
+
+			  </div>
+
+    <div class="wrapper">
+	<br>
+			<div id="header">
+	<span>
+				<img class="foodPics" src="assets/images/fries.png" alt="Fries">
+				<img class="foodPics" src="assets/images/pizza.png" alt="Pizza">
+				<img class="foodPics" src="assets/images/cookie.png" alt="Cookie">
+				<img class="foodPics" src="assets/images/noodles.png" alt="Noodles">
+				<p id="title">FOODEAZE</p>
+				<img class="foodPics" src="assets/images/burger.png" alt="Burger">
+				<img class="foodPics" src="assets/images/fried-chicken.png" alt="Fried-Chicken">
+				<img class="foodPics" src="assets/images/taco.png" alt="Taco">
+				<img class="foodPics" src="assets/images/donut.png" alt="Donut">
+			</span></div>	
+	<br>
     <form>
-            <div class="form-group">
-              <label for="exampleInputEmail1">Type of Food Your Craving:</label>
-              <input type="food" class="form-control" id="exampleFoodInput" aria-describedby="foodInput" placeholder="Enter food">
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </form>   <br> 
+        <div class="form-group">
+              <label for="exampleInputEmail1">What do you want to eat tonight?</label>
+			  <input type="food" class="form-control" id="exampleFoodInput" aria-describedby="foodInput" placeholder="Enter food">
+				<br>  
+			  <span>
+				  <h6>Any restrictions we should look for?</h6>
+					<label class ="refinements">
+						<input type="checkbox"  name="peanuts">  No Peanuts
+					</label>
+					<label class="refinements">
+						<input type="checkbox"  name="shellfish"> No Shellfish
+					</label>
+					<label class="refinements">
+						<input type="checkbox"  name="vegetarian">Vegetarian
+					</label>     
+				</span>
+				<br><br>
+              <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
    
-        <div class="card text-center">
-            <div class="card-header">
-              <ul class="nav nav-tabs card-header-tabs">
-                <li class="nav-item">
-                  <a class="nav-link active" href="#">Active</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Link</a>
-                </li>
-              </ul>
-            </div>
-            <div class="card-body">
-              <h5 class="card-title">Special title treatment</h5>
-              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
-          
+   
+    
+    <div class="card-body">
+        <button class="tablink" onclick="openPage('Recipes', this, 'red')" id="defaultOpen">Recipes</button>
+        <button class="tablink" onclick="openPage('Delivery', this, 'green')">Delivery</button>
+        <button class="tablink" onclick="openPage('Restaurant', this, 'blue')">Restaurants</button>
+        
+        
+        <div id="Recipes" class="tabcontent">
+		<br><div class="innerCard">
+		<h3>Recipes</h3>
+		<br>
+        <p id="recipeData">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae dolore eligendi rerum dolores voluptatibus officia ipsam corporis facere temporibus non voluptates maxime sed veniam voluptatem tempora, harum laboriosam earum neque!
+			Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae dolore eligendi rerum dolores voluptatibus officia ipsam corporis facere temporibus non voluptates maxime sed veniam voluptatem tempora, harum laboriosam earum neque!
+			Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae dolore eligendi rerum dolores voluptatibus officia ipsam corporis facere temporibus non voluptates maxime sed veniam voluptatem tempora, harum laboriosam earum neque!
+			Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae dolore eligendi rerum dolores voluptatibus officia ipsam corporis facere temporibus non voluptates maxime sed veniam voluptatem tempora, harum laboriosam earum neque!
+			Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae dolore eligendi rerum dolores voluptatibus officia ipsam corporis facere temporibus non voluptates maxime sed veniam voluptatem tempora, harum laboriosam earum neque!
+			Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae dolore eligendi rerum dolores voluptatibus officia ipsam corporis facere temporibus non voluptates maxime sed veniam voluptatem tempora, harum laboriosam earum neque!
+			Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae dolore eligendi rerum dolores voluptatibus officia ipsam corporis facere temporibus non voluptates maxime sed veniam voluptatem tempora, harum laboriosam earum neque!
+			Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae dolore eligendi rerum dolores voluptatibus officia ipsam corporis facere temporibus non voluptates maxime sed veniam voluptatem tempora, harum laboriosam earum neque!
+			Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae dolore eligendi rerum dolores voluptatibus officia ipsam corporis facere temporibus non voluptates maxime sed veniam voluptatem tempora, harum laboriosam earum neque!
+			Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae dolore eligendi rerum dolores voluptatibus officia ipsam corporis facere temporibus non voluptates maxime sed veniam voluptatem tempora, harum laboriosam earum neque!
+			Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae dolore eligendi rerum dolores voluptatibus officia ipsam corporis facere temporibus non voluptates maxime sed veniam voluptatem tempora, harum laboriosam earum neque!</p>
+		</div>
+	</div>
+        
+        <div id="Delivery" class="tabcontent">
+		<br><div class="innerCard"><h3>Delivery</h3><br>
+        <p id="deliveryData">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, perferendis ab! Quo accusantium iste iure dolorum rerum vero, rem assumenda consequatur incidunt natus praesentium consequuntur quis maxime explicabo vel reprehenderit?</p> 
+        </div></div>
+        
+        <div id="Restaurant" class="tabcontent">
+	   
+		<br><div class="innerCard"><h3>Restaurants</h3><br>
+       			<p id="restaurantData">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat in commodi sit doloribus repellendus aliquam inventore! Repudiandae totam nulla libero! Consectetur asperiores atque explicabo ab, omnis quos vero eos debitis.</p>
+			</div>
+		</div>
+    </div>
+   </div>
+  
+   <div id="iconCred">Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
 	
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
