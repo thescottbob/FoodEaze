@@ -48,17 +48,34 @@ $("#foodSubmit").on("click", function (event) {
         recipes = stuff.hits
         console.log(recipes)
 
+        // Push recipe info to Recipes tab
+        $("#recipeData").empty()
+        
         for (let i=0; i<recipes.length; i++) {
             let r = recipes[i].recipe
             console.log("-----------------------------")
-
             console.log(r.label)
             console.log(r.url)
             console.log(r.ingredients)
             console.log(r.healthLabels)
             // $("body").append( $("<img>").attr("src",r.image) )
-
             console.log("-----------------------------")
+
+            // Create new table row
+            let newRow = $("<div>").addClass("row recipeRow")
+
+            // Add recipe image
+            newRow.append($("<img>").addClass("col recipeImg").attr({
+                src: r.image,
+                alt: r.label
+            }))
+            // Add recipe name with hyperlink to source
+            newRow.append($("<a>").addClass("col recipeName").text(r.label).attr("href", r.url))
+            // Add health/diet labels
+            let healthDesc = r.healthLabels.join(", ")
+            newRow.append($("<div>").addClass("col recipeHealthLabel").text(healthDesc))
+
+            $("#recipeData").append(newRow)
         }
     })
 })
