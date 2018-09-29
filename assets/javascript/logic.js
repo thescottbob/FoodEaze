@@ -15,8 +15,8 @@ let healthRestrictions = "";
 
 let url = `https://api.edamam.com/search?app_id=${edamAppID}&app_key=${edamApiKey}&q=${food}`
 
-// TODO: Replace #test reference with real ref
-$("#test").on("click", function () {
+// Make API call when food search form is submitted
+$("#foodSubmit").on("click", function () {
     $.ajax(url, {
         method: "GET"
     }).then(function(stuff) {
