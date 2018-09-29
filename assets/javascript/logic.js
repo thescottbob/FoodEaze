@@ -15,6 +15,7 @@ let healthRestrictions = "";
 
 let url = `https://api.edamam.com/search?app_id=${edamAppID}&app_key=${edamApiKey}&q=${food}`
 
+// TODO: Replace #test reference with real ref
 $("#test").on("click", function () {
     $.ajax(url, {
         method: "GET"
