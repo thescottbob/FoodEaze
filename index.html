@@ -16,7 +16,38 @@
 	
 		<div class="navbar">
 				<p id="lilTitle">FOODEAZE</p>
-				
+				<!-- added a button that should take the user to the Our-Story page  -->
+				<button style="width:auto;" id="our-story">Our Story</button>
+				<button style="width:auto;" id="sign-up">Sign Up</button>
+				<div id="sign-up-modal" class="modal">
+					
+						<form class="modal-content animate" action="/action_page.php">
+							<div class="imgcontainer">
+							<h1>FoodEaze</h1>
+							</div>
+							<!-- each ID matches the ID of other modal, so that it pulls the same user responses and inputs the same -->
+							<div class="container">
+							<label for="fname" id="fname"><b>First Name</b></label>
+							<input type="text" placeholder="First Name" name="fname" required>
+							<label for="lname" id="lname"><b>Last Name</b></label>
+							<input type="text" placeholder="Last Name" name="lname" required>
+							<label for="uname" id="uname"><b>Username</b></label>
+							<input type="text" placeholder="Enter Username" name="uname" required>
+	
+							<label for="psw" id="password"><b>Password</b></label>
+							<input type="password" placeholder="Enter Password" name="psw" required>
+							<label for="zipcode" id="zipCode"><b>Zip Code</b></label>
+							<input for="zipcode" placeholder="00000" name="zcode" required>
+							<br><br>
+								
+							<button type="submit" id="creatUser">Sign-Up</button>
+							<label>
+								<input type="checkbox" checked="checked" name="remember"> Remember me
+							</label>
+							</div>
+	
+							<div class="container" style="background-color:#f1f1f1">
+				<!-- button for returning users to login to their account -->
 				<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
 
 					<div id="id01" class="modal">
