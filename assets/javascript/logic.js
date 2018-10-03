@@ -7,8 +7,9 @@
 // Valid Diet filters:           [balanced, high-protein, low-fat, low-carb]
 // Valid Health/Allergy filters: [vegan, vegetarian, sugar-conscious, peanut-free, tree-nut-free, alcohol-free]
 
-let edamAppID = "ed77f616"
-let edamApiKey = "976bea25ef3c24d77968f5c1879d9012"
+let edamAppID = "ed77f616";
+let edamApiKey = "976bea25ef3c24d77968f5c1879d9012";
+let openMenuApiKey = "3d7fcbb4-c412-11e8-b19e-525400552a35";
 let food = "";
 let dietRestrictions = [];
 let healthRestrictions = [];
@@ -78,6 +79,47 @@ $("#foodSubmit").on("click", function (event) {
             $("#recipeData").append(newRow)
         }
     })
+
+    // Basic OpenMenu query
+    // var postalCode = $("#zipCode").val();
+    var postalCode = 98105;
+    let openMenuURL = `https://openmenu.com/api/v2/search.php?key=${openMenuApiKey}&s=${food}&mi=1&postal_code=${postalCode}&country=US`;
+  
+  // OpenMenu API call
+  $.ajax(openMenuURL, {
+    method: "GET"
+  }).then(function(getRestaurantData) {
+    let restaurants = getRestaurantData.response.result.items;
+    console.log(getRestaurantData);
+
+    // Push restaurant info to Restaurants tab
+    $("#restaurantData").empty();
+
+    for (let i = 0; i < restaurants.length; i++) {
+      let res = restaurants[i];
+
+      // Create new table row
+      let newRow = $("<div>").addClass("row restaurantRow");
+
+      
+      newRow.append(
+        $("<div>")
+          .addClass("col menuItemName")
+          .text(res.menu_item_name)
+        //   .attr("href", website_url)
+      );
+
+      // Add restaurant name with hyperlink to source
+      newRow.append(
+        $("<a>")
+          .addClass("col restaurantName")
+          .text(res.restaurant_name)
+        //   .attr("href", website_url)
+      );
+
+      $("#restaurantData").append(newRow);
+    }
+  });
 })
 
 /************************************
