@@ -1,14 +1,10 @@
-/*********************************************
- * Edamam API call
- *******************************************/
+// Valid Diet filters (Edamam):           [balanced, high-protein, low-fat, low-carb]
+// Valid Health/Allergy filters (Edamam): [vegan, vegetarian, sugar-conscious, peanut-free, tree-nut-free, alcohol-free]
+// Valid Diet filters (OpenMenu): [vegan, vegetarian, halal, kosher, gluten-free]
 
-// Edamam App ID: ed77f616
-// Edamam API Key: 976bea25ef3c24d77968f5c1879d9012
-// Valid Diet filters:           [balanced, high-protein, low-fat, low-carb]
-// Valid Health/Allergy filters: [vegan, vegetarian, sugar-conscious, peanut-free, tree-nut-free, alcohol-free]
-
-let edamAppID = "ed77f616"
-let edamApiKey = "976bea25ef3c24d77968f5c1879d9012"
+let edamAppID = "ed77f616";
+let edamApiKey = "976bea25ef3c24d77968f5c1879d9012";
+let openMenuApiKey = "3d7fcbb4-c412-11e8-b19e-525400552a35";
 let food = "";
 let dietRestrictions = [];
 let healthRestrictions = [];
@@ -23,9 +19,11 @@ $("#foodSubmit").on("click", function (event) {
     if ( $("#noNut").is(":checked") ) {
         healthRestrictions.push("peanut-free")
     }
-    if ( $("#noShell").is(":checked") ) {
-        // Free Edamam doesn't support shellfish restriction
-        // healthRestrictions.push("shellfish-free")
+    if ( $("#noAlcohol").is(":checked") ) {
+        healthRestrictions.push("alcohol-free")
+    }
+    if ( $("#vegan").is(":checked") ) {
+        healthRestrictions.push("vegan")
     }
     if ( $("#vegetarian").is(":checked") ) {
         healthRestrictions.push("vegetarian")
@@ -36,7 +34,7 @@ $("#foodSubmit").on("click", function (event) {
     // Add additional flags as necessary
     if (healthRestrictions.length>0) {
         // Only supporting Peanut allergy for now
-        if (healthRestrictions.contains("peanut-free")){
+        if (healthRestrictions.includes("peanut-free")){
             edamURL += "&health="+"peanut-free"
         }
     }
@@ -78,28 +76,65 @@ $("#foodSubmit").on("click", function (event) {
             $("#recipeData").append(newRow)
         }
     })
+
+    // Basic OpenMenu query
+    // var postalCode = $("#zipCode").val();
+    var postalCode = 98105;
+    let openMenuURL = `https://openmenu.com/api/v2/search.php?key=${openMenuApiKey}&s=${food}&mi=1&postal_code=${postalCode}&country=US`;
+  
+  // OpenMenu API call
+  $.ajax(openMenuURL, {
+    method: "GET"
+  }).then(function(getRestaurantData) {
+    let restaurants = getRestaurantData.response.result.items;
+    console.log(getRestaurantData);
+
+    // Push restaurant info to Restaurants tab
+    $("#restaurantData").empty();
+
+    for (let i = 0; i < restaurants.length; i++) {
+      let res = restaurants[i];
+
+      // Create new table row
+      let newRow = $("<div>").addClass("row restaurantRow");
+
+      
+      newRow.append(
+        $("<div>")
+          .addClass("col menuItemName")
+          .text(res.menu_item_name)
+        //   .attr("href", website_url)
+      );
+
+      // Add restaurant name with hyperlink to source
+      newRow.append(
+        $("<a>")
+          .addClass("col restaurantName")
+          .text(res.restaurant_name)
+        //   .attr("href", website_url)
+      );
+
+      $("#restaurantData").append(newRow);
+    }
+  });
 })
 
 /************************************
  * Vanilla javascipt for login modal
  * ***********************************/
-var modal = document.getElementById('id01');
+var logInModal = document.getElementById('id01');
+var signUpModal = document.getElementById('sign-up-modal');
 
-// When the user clicks anywhere outside of the modal, close it
+// When the user clicks anywhere outside of the logInModal or signUpModal, close it
 window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
+    if (event.target == logInModal) {
+        logInModal.style.display = "none";
+    }
+    else if (event.target == signUpModal) {
+        signUpModal.style.display = "none";
     }
 }
-
-var modal = document.getElementById('sign-up-modal');
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
+   
 // Vanilla javascipt for tabs
 function openPage(pageName,elmnt,color) {
     var i, tabcontent, tablinks;
