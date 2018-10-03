@@ -32,53 +32,53 @@ $("#foodSubmit").on("click", function (event) {
         healthRestrictions.push("vegetarian")
     }
     
-    // // Basic query
-    // let edamURL = `https://api.edamam.com/search?app_id=${edamAppID}&app_key=${edamApiKey}&q=${food}`
-    // // Add additional flags as necessary
-    // if (healthRestrictions.length>0) {
-    //     // Only supporting Peanut allergy for now
-    //     if (healthRestrictions.contains("peanut-free")){
-    //         edamURL += "&health="+"peanut-free"
-    //     }
-    // }
+    // Basic query
+    let edamURL = `https://api.edamam.com/search?app_id=${edamAppID}&app_key=${edamApiKey}&q=${food}`
+    // Add additional flags as necessary
+    if (healthRestrictions.length>0) {
+        // Only supporting Peanut allergy for now
+        if (healthRestrictions.contains("peanut-free")){
+            edamURL += "&health="+"peanut-free"
+        }
+    }
 
-    // // Edamam API call
-    // $.ajax(edamURL, {
-    //     method: "GET"
-    // }).then(function(stuff) {
-    //     recipes = stuff.hits
-    //     console.log(recipes)
+    // Edamam API call
+    $.ajax(edamURL, {
+        method: "GET"
+    }).then(function(stuff) {
+        recipes = stuff.hits
+        console.log(recipes)
 
-    //     // Push recipe info to Recipes tab
-    //     $("#recipeData").empty()
+        // Push recipe info to Recipes tab
+        $("#recipeData").empty()
         
-    //     for (let i=0; i<recipes.length; i++) {
-    //         let r = recipes[i].recipe
-    //         console.log("-----------------------------")
-    //         console.log(r.label)
-    //         console.log(r.url)
-    //         console.log(r.ingredients)
-    //         console.log(r.healthLabels)
-    //         // $("body").append( $("<img>").attr("src",r.image) )
-    //         console.log("-----------------------------")
+        for (let i=0; i<recipes.length; i++) {
+            let r = recipes[i].recipe
+            console.log("-----------------------------")
+            console.log(r.label)
+            console.log(r.url)
+            console.log(r.ingredients)
+            console.log(r.healthLabels)
+            // $("body").append( $("<img>").attr("src",r.image) )
+            console.log("-----------------------------")
 
-    //         // Create new table row
-    //         let newRow = $("<div>").addClass("row recipeRow")
+            // Create new table row
+            let newRow = $("<div>").addClass("row recipeRow")
 
-    //         // Add recipe image
-    //         newRow.append($("<img>").addClass("col recipeImg").attr({
-    //             src: r.image,
-    //             alt: r.label
-    //         }))
-    //         // Add recipe name with hyperlink to source
-    //         newRow.append($("<a>").addClass("col recipeName").text(r.label).attr("href", r.url))
-    //         // Add health/diet labels
-    //         let healthDesc = r.healthLabels.join(", ")
-    //         newRow.append($("<div>").addClass("col recipeHealthLabel").text(healthDesc))
+            // Add recipe image
+            newRow.append($("<img>").addClass("col recipeImg").attr({
+                src: r.image,
+                alt: r.label
+            }))
+            // Add recipe name with hyperlink to source
+            newRow.append($("<a>").addClass("col recipeName").text(r.label).attr("href", r.url))
+            // Add health/diet labels
+            let healthDesc = r.healthLabels.join(", ")
+            newRow.append($("<div>").addClass("col recipeHealthLabel").text(healthDesc))
 
-    //         $("#recipeData").append(newRow)
-    //     }
-    // })
+            $("#recipeData").append(newRow)
+        }
+    })
 
     // Basic OpenMenu query
     // var postalCode = $("#zipCode").val();
