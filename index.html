@@ -14,82 +14,90 @@
 	<link rel="icon" type="image/png" href="assets/images/apple.png">
 	<link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
 	<script src="https://developer.edamam.com/attribution/badge.js"></script>
-3
-</head>
-
-<body>
-
-	<div class="navbar">
-		<p id="lilTitle">FOODEAZE</p>
-		<!-- added a button that should take the user to the Our-Story page  -->
-		<a href="our-story.html"><button id="loginButton" style="width:auto;" id="our-story">Our Story</button></a>
-		<!-- button that would take user to the Sign-Up modal -->
-
-		<!-- <button id ="loginButton" style="width:auto;" id="sign-up">Sign Up</button> -->
-		<button id="loginButton" onclick="document.getElementById('sign-up-modal').style.display='block'" style="width:auto;">Sign
-			Up</button>
-		<div id="sign-up-modal" class="modal">
-			<form class="modal-content animate" action="/action_page.php">
-				<div class="imgcontainer">
-					<p id="lilTitle2">FOODEAZE</p>
-				</div>
-				<!-- each ID matches the ID of other modal, so that it pulls the same user responses and inputs the same -->
-				<div class="container">
-					<label for="fname"><b>First Name</b></label>
-					<input type="text" placeholder="First Name" name="fname" id="signfname" required>
-					<label for="lname"><b>Last Name</b></label>
-					<input type="text" placeholder="Last Name" name="lname" id="signlname" required>
-					<label for="uname"><b>Create Username</b></label>
-					<input type="text" placeholder="Enter Username" name="uname" id="signuname" required>
-
-					<label for="psw"><b>Create Password</b></label>
-					<input type="password" placeholder="Enter Password" name="psw" id="signpassword" required>
-					<label for="zipcode"><b>Zip Code</b></label>
-					<input for="zipcode" placeholder="00000" name="zcode" id="signzipCode" required>
-					<br><br>
-
-					<button id="loginButton" type="submit" id="signcreateUser">Sign-Up</button>
-					<label>
-						<input type="checkbox" checked="checked" name="remember"> Remember me
-					</label>
-				</div>
-			</form>
+  </head>
+  <body>
+		
+		<div class="navbar">
+				<p id="lilTitle">FOODEAZE</p>
+				<!-- added a button that should take the user to the Our-Story page  -->
+		
+				
+				
+				<div id="buttonWrapper">
+					<a href="our-story.html">
+						<button id ="loginButton" style="width:auto;" >Our Story</button>
+					</a>
+				<!-- button that would take user to the Sign-Up modal -->
+				
+				
+				<!-- <button id ="loginButton" style="width:auto;" id="sign-up">Sign Up</button> -->
+					<button id ="loginButton" onclick="document.getElementById('sign-up-modal').style.display='block'" style="width:auto;">Sign Up</button>
+						<div id="sign-up-modal" class="modal">
+							<form class="modal-content animate" action="/action_page.php">
+									<div class="imgcontainer">
+											<p id="lilTitle2">FOODEAZE</p>
+									</div>
+									<!-- each ID matches the ID of other modal, so that it pulls the same user responses and inputs the same -->
+										<div class="container">
+											<label for="fname" id="fname"><b>First Name</b></label>
+											<input type="text" placeholder="First Name" name="fname" required>
+											<label for="lname" id="lname"><b>Last Name</b></label>
+											<input type="text" placeholder="Last Name" name="lname" required>
+											<label for="uname" id="uname"><b>Create Username</b></label>
+											<input type="text" placeholder="Enter Username" name="uname" required>
+					
+											<label for="psw" id="password"><b>Create Password</b></label>
+											<input type="password" placeholder="Enter Password" name="psw" required>
+											<label for="zipcode" id="zipCode"><b>Zip Code</b></label>
+											<input for="zipcode" placeholder="00000" name="zcode" required>
+											<br><br>
+												
+											<button id="loginButton" type="submit" id="creatUser">Sign-Up</button>
+											<label>
+												<input type="checkbox" checked="checked" name="remember"> Remember me
+											</label>
+										</div>
+							</form>
+						</div>
+							
 	
-		</div>
+				<!-- button for returning users to login to their account -->
+				<button id ="loginButton" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
 
-		<!-- button for returning users to login to their account -->
-		<button id="loginButton" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
+					<div id="id01" class="modal">
+					
+					<form class="modal-content animate" action="/action_page.php">
+						<div class="imgcontainer">
+								<p id="lilTitle2">FOODEAZE</p>
+						</div>
 
-		<div id="id01" class="modal">
+						<div class="container">
+						<label for="uname"id="username"><b>Username</b></label>
+						<input type="text" placeholder="Enter Username" name="uname" required>
 
-			<form class="modal-content animate" action="/action_page.php">
-				<div class="imgcontainer">
-					<p id="lilTitle2">FOODEAZE</p>
+						<label for="psw" id="password"><b>Password</b></label>
+						<input type="password" placeholder="Enter Password" name="psw" required>
+							
+						<button id="loginButton"type="submit" id="submitUser">Login</button>
+						<label>
+							<input type="checkbox" checked="checked" name="remember"id="rememberMe"> Remember me
+						</label>
+						</div>
+
+						<div class="container" style="background-color:#f1f1f1">
+						<button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+						<span class="psw"><a href="http:www.google.com"> Forgot password? </a></span>
+						</div>
+					</form>
+					</div>
 				</div>
+			</div>
 
-				<div class="container">
-					<label for="uname"><b>Username</b></label>
-					<input type="text" placeholder="Enter Username" name="uname" id="logusername" required>
-
-					<label for="psw"><b>Password</b></label>
-					<input type="password" placeholder="Enter Password" name="psw" id="logpassword" required>
-
-					<button id="loginButton" type="submit" id="logsubmitUser">Login</button>
-					<label>
-						<input type="checkbox" checked="checked" name="remember" id="rememberMe"> Remember me
-					</label>
-				</div>
-
-				<div class="container" style="background-color:#f1f1f1">
-					<button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-					<span class="psw"><a href="http:www.google.com"> Forgot password? </a></span>
-				</div>
-			</form>
-		</div>
-	</div>
-
-	</div>
-
+		
+	
+	
+	
+			
 	<div class="wrapper">
 		<br>
 		<div id="header">
@@ -100,62 +108,56 @@
 				<img class="foodPics2" src="assets/images/noodles.png" alt="Noodles">
 				<p id="title">FOODEAZE</p>
 				<!--<img class="foodPics2" src="assets/images/fried-chicken.png" alt="Fried-Chicken">-->
-			</span></div>
-		<br>
-		<form>
-			<div class="form-group">
-				<label for="exampleInputEmail1">What do you want to eat tonight?</label>
-				<input type="food" class="form-control" id="exampleFoodInput" aria-describedby="foodInput" placeholder="Enter food">
-				<br>
-				<span>
-					<h6>Any restrictions we should look for?</h6>
-					<label class="refinements">
-						<input type="checkbox" name="peanuts" id="noNut">Peanut-Free
-					</label>
-
-					<label class="refinements">
-						<input type="checkbox" name="alcohol" id="noAlcohol">Alcohol Free
+			</span></div>	
+	<br>
+    <form>
+        <div class="form-group">
+              <label for="exampleInputEmail1">What do you want to eat tonight?</label>
+			  <input type="food" class="form-control" id="exampleFoodInput" aria-describedby="foodInput" placeholder="Enter food">
+				<br>  
+			  <span>
+				  <h6>Any restrictions we should look for?</h6>
+					<label class ="refinements">
+						<input type="checkbox"  name="peanuts" id="noNut">Peanut Free
 					</label>
 					<label class="refinements">
-						<input type="checkbox" name="vegan" id="vegan">Vegan
+						<input type="checkbox"  name="alcohol" id="noAlcohol">Alcohol Free
+					</label> 
+					<label class ="refinements">
+						<input type="checkbox"  name="noTreeNut" id="noTreeNut">Nut Free
+					</label> 
+					<label class ="refinements">
+						<input type="checkbox"  name="vegan" id="vegan">Vegan
 					</label>
-					<label class="refinements">
-						<input type="checkbox" name="vegetarian" id="vegetarian">Vegetarian
+					<label class ="refinements">
+						<input type="checkbox"  name="vegatarian" id="vegatarian">Vegatarian
 					</label>
 				</span>
-				<button type="submit" class="btn btn-primary" id="foodSubmit">Submit</button>
-			</div>
-		</form>
-
-		<div class="card-body">
-			<button class="tablink" onclick="openPage('Recipes', this, '#f25f5c')" id="defaultOpen">Recipes</button>
-			<button class="tablink" onclick="openPage('Delivery', this, '#70c1b3')">Delivery</button>
-			<button class="tablink" onclick="openPage('Restaurant', this, 'lightsalmon')">Restaurants</button>
-
-
-			<div id="Recipes" class="tabcontent">
-				<div class="innerCard">
-					<h3>Recipes</h3><br>
-					<p id="recipeData"><img class="foodPics1" src="assets/images/burger.png" alt="Burger"><br>Search for your
-						favortite recipes and let us know if you have any dietery restrictions. We would love to help you find recipes
-						that are right for you. :)
-				</div>
-			</div>
-
-			<div id="Delivery" class="tabcontent">
-				<div class="innerCard">
-					<h3>Delivery</h3><br>
-					<p id="deliveryData"><img class="foodPics1" src="assets/images/taco.png" alt="Taco"><br>Let us help locate ways to
-						have your favorite foods delivered right to your door </p>
-				</div>
-			</div>
-
-			<div id="Restaurant" class="tabcontent">
-				<div class="innerCard">
-					<h3>Restaurants</h3><br>
-					<p id="restaurantData"><img class="foodPics1" src="assets/images/donut.png" alt="Donut"><br>We can find
-						restaurants in your neighborhood that serve the food that you are looking for.</p>
-				</div>
+              <br><button type="submit" class="btn btn-primary" id="foodSubmit">Submit</button>
+        </div>
+    </form>
+   
+   
+    
+    <div class="card-body">
+        <button class="tablink" onclick="openPage('Recipes', this, '#f25f5c')" id="defaultOpen">Recipes</button>
+        <button class="tablink" onclick="openPage('Delivery', this, '#70c1b3')">Delivery</button>
+        <button class="tablink" onclick="openPage('Restaurant', this, 'lightsalmon')">Restaurants</button>
+        
+        
+        <div id="Recipes" class="tabcontent">
+		<div class="innerCard"><br><h3>Recipes</h3>
+        <p id="recipeData"><img class="foodPics1" src="assets/images/burger.png" alt="Burger"><br>Search for your favorite recipes and let us know if you have any dietery restrictions. We would love to help you find recipes that are right for you. :)</div>
+	</div>
+        
+        <div id="Delivery" class="tabcontent">
+		<div class="innerCard"><br><h3>Delivery</h3>
+        <p id="deliveryData"><img class="foodPics1" src="assets/images/taco.png" alt="Taco"><br>Let us help locate ways to have your favorite foods delivered right to your door </p> 
+        </div></div>
+        
+        <div id="Restaurant" class="tabcontent">
+	    <div class="innerCard"><br><h3>Restaurants</h3>
+				   <p id="restaurantData"><img class="foodPics1" src="assets/images/donut.png" alt="Donut"><br>We can find restaurants in your neighborhood that serve the food that you are looking for.</p>
 			</div>
 		</div>
 	</div>
@@ -163,6 +165,7 @@
 	<div id="iconCred">Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/"
 		 title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0"
 		 target="_blank">CC 3.0 BY</a></div>
+		 <div id="apiCred">Menus provided by <a href="http://www.openmenu.com" title="openMenu">OpenMenu</a> </div>
 	<div id="edamam-badge" data-color="black"></div>
 
 	<!-- Optional JavaScript -->
