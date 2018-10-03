@@ -18,12 +18,18 @@
 		<div class="navbar">
 				<p id="lilTitle">FOODEAZE</p>
 				<!-- added a button that should take the user to the Our-Story page  -->
-				<a href="our-story.html"><button id ="loginButton" style="width:auto;" id="our-story">Our Story</button></a>
+		
+				
+				
+				<div id="buttonWrapper">
+					<a href="our-story.html">
+						<button id ="loginButton" style="width:auto;" >Our Story</button>
+					</a>
 				<!-- button that would take user to the Sign-Up modal -->
 				
 				
 				<!-- <button id ="loginButton" style="width:auto;" id="sign-up">Sign Up</button> -->
-				<button id ="loginButton" onclick="document.getElementById('sign-up-modal').style.display='block'" style="width:auto;">Sign Up</button>
+					<button id ="loginButton" onclick="document.getElementById('sign-up-modal').style.display='block'" style="width:auto;">Sign Up</button>
 						<div id="sign-up-modal" class="modal">
 							<form class="modal-content animate" action="/action_page.php">
 									<div class="imgcontainer">
@@ -82,10 +88,10 @@
 						</div>
 					</form>
 					</div>
-		</div>
-				
+				</div>
+			</div>
 
-		</div>
+		
 	
 	
 	
@@ -110,11 +116,14 @@
 			  <span>
 				  <h6>Any restrictions we should look for?</h6>
 					<label class ="refinements">
-						<input type="checkbox"  name="peanuts" id="noNut">Peanut-Free
+						<input type="checkbox"  name="peanuts" id="noNut">Peanut Free
 					</label>
 					
 					<label class="refinements">
 						<input type="checkbox"  name="alcohol" id="noAlcohol">Alcohol Free
+					</label> 
+					<label class ="refinements">
+						<input type="checkbox"  name="vnoTreeNut" id="noTreeNut">Nut Free
 					</label> 
 					<label class ="refinements">
 						<input type="checkbox"  name="vegan" id="vegan">Vegan
@@ -123,7 +132,7 @@
 						<input type="checkbox"  name="vegetarian" id="noNut">Vegetarian
 					</label>    
 				</span>
-              <button type="submit" class="btn btn-primary" id="foodSubmit">Submit</button>
+              <br><button type="submit" class="btn btn-primary" id="foodSubmit">Submit</button>
         </div>
     </form>
    
@@ -136,17 +145,17 @@
         
         
         <div id="Recipes" class="tabcontent">
-		<div class="innerCard"><h3>Recipes</h3><br>
-        <p id="recipeData"><img class="foodPics1" src="assets/images/burger.png" alt="Burger"><br>Search for your favortite recipes and let us know if you have any dietery restrictions. We would love to help you find recipes that are right for you. :)</div>
+		<div class="innerCard"><br><h3>Recipes</h3>
+        <p id="recipeData"><img class="foodPics1" src="assets/images/burger.png" alt="Burger"><br>Search for your favorite recipes and let us know if you have any dietery restrictions. We would love to help you find recipes that are right for you. :)</div>
 	</div>
         
         <div id="Delivery" class="tabcontent">
-		<div class="innerCard"><h3>Delivery</h3><br>
+		<div class="innerCard"><br><h3>Delivery</h3>
         <p id="deliveryData"><img class="foodPics1" src="assets/images/taco.png" alt="Taco"><br>Let us help locate ways to have your favorite foods delivered right to your door </p> 
         </div></div>
         
         <div id="Restaurant" class="tabcontent">
-	    <div class="innerCard"><h3>Restaurants</h3><br>
+	    <div class="innerCard"><br><h3>Restaurants</h3>
 				   <p id="restaurantData"><img class="foodPics1" src="assets/images/donut.png" alt="Donut"><br>We can find restaurants in your neighborhood that serve the food that you are looking for.</p>
 			</div>
 		</div>
