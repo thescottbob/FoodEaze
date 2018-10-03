@@ -91,6 +91,15 @@ window.onclick = function(event) {
         modal.style.display = "none";
     }
 }
+
+var modal = document.getElementById('sign-up-modal');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
 // Vanilla javascipt for tabs
 function openPage(pageName,elmnt,color) {
     var i, tabcontent, tablinks;
