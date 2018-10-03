@@ -99,6 +99,13 @@ h3{
     
 }
 
+#title2{
+    font-family: 'Fredoka One', cursive;
+    letter-spacing: 20px;
+    font-size: 25px;
+
+}
+
 #lilTitle{
     font-size: 20px;
     font-family: 'Fredoka One', cursive;
@@ -297,7 +304,7 @@ li {
     font-size:35px;
 }
 /* added  location and editing to each card so it shows us as best as possible in the pictures*/
-img {
+#ourPhotos {
     /* position: relative; */
     /* float: left; */
     width:  300px;
@@ -306,3 +313,4 @@ img {
     background-repeat:   no-repeat;
     background-size:     cover;
 }
+
