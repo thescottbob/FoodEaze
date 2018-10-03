@@ -108,3 +108,46 @@ function openPage(pageName,elmnt,color) {
 }
 // Get the element with id="defaultOpen" and click on it
 document.getElementById("defaultOpen").click();
+
+
+/***********************************************
+ * 
+ * User authentication
+ * 
+ **********************************************/
+
+// Initialize Firebase
+var config = {
+    apiKey: "AIzaSyAuXYrTrmD1F3UToiV9MGGMuDoArVTOSp8",
+    authDomain: "foodeaze-92954.firebaseapp.com",
+    databaseURL: "https://foodeaze-92954.firebaseio.com",
+    projectId: "foodeaze-92954",
+    storageBucket: "foodeaze-92954.appspot.com",
+    messagingSenderId: "549845192920"
+};
+firebase.initializeApp(config);
+
+function newUser(email, password) {
+    firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        // ...
+      });
+}
+
+function signIn(email, password) {
+    firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+        console.log(error.code);
+        console.log(error.message);
+     });
+}
+
+function signOut() {
+    firebase.auth().signOut().then(function() {
+        console.log("Logged out!")
+     }, function(error) {
+        console.log(error.code);
+        console.log(error.message);
+     });
+}
