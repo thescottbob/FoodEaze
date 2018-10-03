@@ -298,10 +298,10 @@ span.psw {
 
 /* added CSS for the Our-Story page */
 .card-title {
-    font-size: 65px;
+    font-size: 35px;
 }
 li {
-    font-size:35px;
+    font-size:18px;
 }
 /* added  location and editing to each card so it shows us as best as possible in the pictures*/
 #ourPhotos {
@@ -333,6 +333,7 @@ li {
     border: solid black 2px;
     width: 90%;
     margin:auto;
+    
 }
 
 
