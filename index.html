@@ -64,7 +64,7 @@
 						<label for="psw" id="password"><b>Password</b></label>
 						<input type="password" placeholder="Enter Password" name="psw" required>
 							
-						<button type="submit" id="submitUser">Login</button>
+						<button id="loginButton"type="submit" id="submitUser">Login</button>
 						<label>
 							<input type="checkbox" checked="checked" name="remember"id="rememberMe"> Remember me
 						</label>
@@ -76,8 +76,9 @@
 						</div>
 					</form>
 					</div>
+				
 
-			  </div>
+		</div>
 
     <div class="wrapper">
 	<br>
@@ -88,10 +89,7 @@
 				<img class="foodPics1" src="assets/images/cookie.png" alt="Cookie">
 				<img class="foodPics2" src="assets/images/noodles.png" alt="Noodles">
 				<p id="title">FOODEAZE</p>
-				<img class="foodPics1" src="assets/images/burger.png" alt="Burger">
-				<img class="foodPics2" src="assets/images/fried-chicken.png" alt="Fried-Chicken">
-				<img class="foodPics1" src="assets/images/taco.png" alt="Taco">
-				<img class="foodPics2" src="assets/images/donut.png" alt="Donut">
+				<!--<img class="foodPics2" src="assets/images/fried-chicken.png" alt="Fried-Chicken">-->
 			</span></div>	
 	<br>
     <form>
@@ -111,7 +109,6 @@
 						<input type="checkbox"  name="vegetarian" id="vegetarian">Vegetarian
 					</label>     
 				</span>
-				<br><br>
               <button type="submit" class="btn btn-primary" id="foodSubmit">Submit</button>
         </div>
     </form>
@@ -119,35 +116,24 @@
    
     
     <div class="card-body">
-        <button class="tablink" onclick="openPage('Recipes', this, 'red')" id="defaultOpen">Recipes</button>
-        <button class="tablink" onclick="openPage('Delivery', this, 'green')">Delivery</button>
-        <button class="tablink" onclick="openPage('Restaurant', this, 'blue')">Restaurants</button>
+        <button class="tablink" onclick="openPage('Recipes', this, '#f25f5c')" id="defaultOpen">Recipes</button>
+        <button class="tablink" onclick="openPage('Delivery', this, '#70c1b3')">Delivery</button>
+        <button class="tablink" onclick="openPage('Restaurant', this, 'lightsalmon')">Restaurants</button>
         
         
         <div id="Recipes" class="tabcontent">
-		<br><div class="innerCard"><h3>Recipes</h3><br>
-        <p id="recipeData">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae dolore eligendi rerum dolores voluptatibus officia ipsam corporis facere temporibus non voluptates maxime sed veniam voluptatem tempora, harum laboriosam earum neque!
-			Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae dolore eligendi rerum dolores voluptatibus officia ipsam corporis facere temporibus non voluptates maxime sed veniam voluptatem tempora, harum laboriosam earum neque!
-			Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae dolore eligendi rerum dolores voluptatibus officia ipsam corporis facere temporibus non voluptates maxime sed veniam voluptatem tempora, harum laboriosam earum neque!
-			Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae dolore eligendi rerum dolores voluptatibus officia ipsam corporis facere temporibus non voluptates maxime sed veniam voluptatem tempora, harum laboriosam earum neque!
-			Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae dolore eligendi rerum dolores voluptatibus officia ipsam corporis facere temporibus non voluptates maxime sed veniam voluptatem tempora, harum laboriosam earum neque!
-			Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae dolore eligendi rerum dolores voluptatibus officia ipsam corporis facere temporibus non voluptates maxime sed veniam voluptatem tempora, harum laboriosam earum neque!
-			Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae dolore eligendi rerum dolores voluptatibus officia ipsam corporis facere temporibus non voluptates maxime sed veniam voluptatem tempora, harum laboriosam earum neque!
-			Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae dolore eligendi rerum dolores voluptatibus officia ipsam corporis facere temporibus non voluptates maxime sed veniam voluptatem tempora, harum laboriosam earum neque!
-			Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae dolore eligendi rerum dolores voluptatibus officia ipsam corporis facere temporibus non voluptates maxime sed veniam voluptatem tempora, harum laboriosam earum neque!
-			Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae dolore eligendi rerum dolores voluptatibus officia ipsam corporis facere temporibus non voluptates maxime sed veniam voluptatem tempora, harum laboriosam earum neque!
-			Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae dolore eligendi rerum dolores voluptatibus officia ipsam corporis facere temporibus non voluptates maxime sed veniam voluptatem tempora, harum laboriosam earum neque!</p>
-		</div>
+		<div class="innerCard"><h3>Recipes</h3><br>
+        <p id="recipeData"><img class="foodPics1" src="assets/images/burger.png" alt="Burger"><br>Search for your favortite recipes and let us know if you have any dietery restrictions. We would love to help you find recipes that are right for you. :)</div>
 	</div>
         
         <div id="Delivery" class="tabcontent">
-		<br><div class="innerCard"><h3>Delivery</h3><br>
-        <p id="deliveryData">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, perferendis ab! Quo accusantium iste iure dolorum rerum vero, rem assumenda consequatur incidunt natus praesentium consequuntur quis maxime explicabo vel reprehenderit?</p> 
+		<div class="innerCard"><h3>Delivery</h3><br>
+        <p id="deliveryData"><img class="foodPics1" src="assets/images/taco.png" alt="Taco"><br>Let us help locate ways to have your favorite foods delivered right to your door </p> 
         </div></div>
         
         <div id="Restaurant" class="tabcontent">
-	    <br><div class="innerCard"><h3>Restaurants</h3><br>
-       			<p id="restaurantData">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat in commodi sit doloribus repellendus aliquam inventore! Repudiandae totam nulla libero! Consectetur asperiores atque explicabo ab, omnis quos vero eos debitis.</p>
+	    <div class="innerCard"><h3>Restaurants</h3><br>
+				   <p id="restaurantData"><img class="foodPics2" src="assets/images/donut.png" alt="Donut"><br>We can find restaurants in your neighborhood that serve the food that you are looking for.</p>
 			</div>
 		</div>
     </div>

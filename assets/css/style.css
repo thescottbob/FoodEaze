@@ -9,6 +9,9 @@ body, html {
     line-height: 1.5;
 }
 
+h3{
+    font-family: 'Fredoka One', cursive;
+}
 .navbar {
     overflow: hidden;
     background-color:navy;
@@ -16,7 +19,9 @@ body, html {
     top: 0;
     width: 100%;
     height: 60px;
+    z-index:1; 
   }
+  
   
   .navbar a {
     float: left;
@@ -34,7 +39,7 @@ body, html {
 
 /* Style tab links */
 .tablink {
-    background-color: #555;
+    background-color: silver;
     color: white;
     float: left;
     border: none;
@@ -43,11 +48,10 @@ body, html {
     padding: 20px;
     font-size: 20px;
     width: 33.3333%;
+    font-family: 'Fredoka One', cursive;
 }
 
-.tablink:hover {
-    background-color: #777;
-}
+
 
 /* Style the tab content (and add height:100% for full page content) */
 .tabcontent {
@@ -56,11 +60,12 @@ body, html {
     padding: 100px 20px;
     height: 100%;
     border-radius: 12px;
+    
 }
 
-#Recipes {background-color: red;}
-#Delivery {background-color: green;}
-#Restaurant {background-color: blue;}
+#Recipes {background-color: #f25f5c;}
+#Delivery {background-color: #70c1b3;}
+#Restaurant {background-color: lightsalmon;}
 
 .form-group {
     width: 75%;
@@ -71,7 +76,7 @@ body, html {
 .wrapper  {
     width:90%;
     margin: auto;
-    border: 6px ridge green;
+    border: 6px ridge ivory;
     border-radius: 12px;
     margin: auto;
     margin-top: 80px;
@@ -129,7 +134,6 @@ body, html {
 }
 
 
-
 .innerCard{
     border: 3px solid white;
     background:white;
@@ -137,6 +141,8 @@ body, html {
     border-radius: 12px;
     padding:auto;
     margin: auto;
+    text-align: center;
+    
 }
 
 input[type=text], input[type=password] {
@@ -149,14 +155,16 @@ input[type=text], input[type=password] {
 }
 
 /* Set a style for all buttons */
-button {
+#loginButton {
     background-color: #4CAF50;
     color: white;
     padding: 14px 20px;
     margin: 0;
-    border: none;
+    border-radius: 10px;
+    border:none;
     cursor: pointer;
     width: 30%;
+    margin-right: 15px;
 }
 
 button:hover {
@@ -168,6 +176,7 @@ button:hover {
     width: auto;
     padding: 10px 18px;
     background-color: #f44336;
+    border-radius: 12px;
 }
 
 /* Center the image and position the close button */
@@ -177,10 +186,7 @@ button:hover {
     position: relative;
 }
 
-img.avatar {
-    width: 40%;
-    border-radius: 50%;
-}
+
 
 .container {
     padding: 16px;
@@ -264,6 +270,10 @@ span.psw {
     #title {
         font-size: 30px;
         letter-spacing: 20px;
+    }
+
+    .tablink{
+        font-size: 12px;
     }
     
    
