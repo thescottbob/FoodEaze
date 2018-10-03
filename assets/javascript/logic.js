@@ -125,23 +125,19 @@ $("#foodSubmit").on("click", function (event) {
 /************************************
  * Vanilla javascipt for login modal
  * ***********************************/
-var modal = document.getElementById('id01');
+var logInModal = document.getElementById('id01');
+var signUpModal = document.getElementById('sign-up-modal');
 
-// When the user clicks anywhere outside of the modal, close it
+// When the user clicks anywhere outside of the logInModal or signUpModal, close it
 window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
+    if (event.target == logInModal) {
+        logInModal.style.display = "none";
+    }
+    else if (event.target == signUpModal) {
+        signUpModal.style.display = "none";
     }
 }
-
-var modal = document.getElementById('sign-up-modal');
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
+   
 // Vanilla javascipt for tabs
 function openPage(pageName,elmnt,color) {
     var i, tabcontent, tablinks;
