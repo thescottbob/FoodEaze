@@ -313,4 +313,26 @@ li {
     background-repeat:   no-repeat;
     background-size:     cover;
 }
+/* style for returned data from edamam API */
+.recipeImg {
+    width: 200px;
+    height: 200px;
+    border: solid black 2px;
+}
+.recipeName {
+    font-size: 35px;
+    font-family: 'Times New Roman', Times, serif;
+    border: solid black 2px;
+}
+.recipeHealthLabel {
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    border: solid black 2px;
+}
+.recipeRow {
+    border: solid black 2px;
+    width: 90%;
+    margin:auto;
+}
+
 
