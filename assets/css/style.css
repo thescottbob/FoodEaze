@@ -296,7 +296,7 @@ span.psw {
 
 /* added CSS for the Our-Story page */
 .card-title {
-    font-size: 35px;
+    font-size: 33px;
 }
 li {
     font-size:18px;
@@ -340,6 +340,24 @@ li {
 }
 
 
-.checkbox{
-    margin-left: 10px;
+.menuItemName {
+    font-size: 35px;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+    margin:auto;
 }
+.restaurantName {
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+    margin:auto;
+}
+.restaurantRow {
+    border: solid black 2px;
+    width: 90%;
+    margin:3%;
+    border-radius: 12px;
+    
+}
+
+
