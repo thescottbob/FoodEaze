@@ -192,6 +192,10 @@ function newUser(email, password) {
 
 // Function signs in existing user
 function signIn(email, password) {
+    // Force values for testing
+    email = "bob@exam.com"
+    password = "password"
+
     firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
         console.log(error.code);
         console.log(error.message);
@@ -224,4 +228,13 @@ $("#signcreateUser").on("click", function() {
 
     // Add user to database
     // newUser(email, password)
+})
+
+$("#logsubmitUser").on("click", function() {
+    event.preventDefault()
+
+    let email = $("#logusername").val()
+    let password = $("#logpassword").val()
+
+    signIn(email, password)
 })
