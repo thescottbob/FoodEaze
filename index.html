@@ -17,86 +17,82 @@
   </head>
   <body>
 		
-		<div class="navbar">
-				<p id="lilTitle">FOODEAZE</p>
-				<!-- added a button that should take the user to the Our-Story page  -->
-		
-				
-				
-				<div id="buttonWrapper">
-					<a href="our-story.html">
-						<button id ="loginButton" style="width:auto;" >Our Story</button>
-					</a>
-				<!-- button that would take user to the Sign-Up modal -->
-				
-				
-				<!-- <button id ="loginButton" style="width:auto;" id="sign-up">Sign Up</button> -->
-					<button id ="loginButton" onclick="document.getElementById('sign-up-modal').style.display='block'" style="width:auto;">Sign Up</button>
-						<div id="sign-up-modal" class="modal">
-							<form class="modal-content animate" action="/action_page.php">
-									<div class="imgcontainer">
-											<p id="lilTitle2">FOODEAZE</p>
-									</div>
-									<!-- each ID matches the ID of other modal, so that it pulls the same user responses and inputs the same -->
-										<div class="container">
-											<label for="fname" id="fname"><b>First Name</b></label>
-											<input type="text" placeholder="First Name" name="fname" required>
-											<label for="lname" id="lname"><b>Last Name</b></label>
-											<input type="text" placeholder="Last Name" name="lname" required>
-											<label for="uname" id="uname"><b>Create Username</b></label>
-											<input type="text" placeholder="Enter Username" name="uname" required>
-					
-											<label for="psw" id="password"><b>Create Password</b></label>
-											<input type="password" placeholder="Enter Password" name="psw" required>
-											<label for="zipcode" id="zipCode"><b>Zip Code</b></label>
-											<input for="zipcode" placeholder="00000" name="zcode" required>
-											<br><br>
-												
-											<button id="loginButton" type="submit" id="creatUser">Sign-Up</button>
-											<label>
-												<input type="checkbox" checked="checked" name="remember"> Remember me
-											</label>
-										</div>
-							</form>
-						</div>
-							
-	
-				<!-- button for returning users to login to their account -->
-				<button id ="loginButton" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
-
-					<div id="id01" class="modal">
-					
-					<form class="modal-content animate" action="/action_page.php">
-						<div class="imgcontainer">
-								<p id="lilTitle2">FOODEAZE</p>
-						</div>
-
-						<div class="container">
-						<label for="uname"id="username"><b>Username</b></label>
-						<input type="text" placeholder="Enter Username" name="uname" required>
-
-						<label for="psw" id="password"><b>Password</b></label>
-						<input type="password" placeholder="Enter Password" name="psw" required>
-							
-						<button id="loginButton"type="submit" id="submitUser">Login</button>
-						<label>
-							<input type="checkbox" checked="checked" name="remember"id="rememberMe"> Remember me
-						</label>
-						</div>
-
-						<div class="container" style="background-color:#f1f1f1">
-						<button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-						<span class="psw"><a href="http:www.google.com"> Forgot password? </a></span>
-						</div>
-					</form>
-					</div>
-				</div>
-			</div>
-
-		
-	
-	
-	
+    <div class="navbar">
+      <p id="lilTitle">FOODEAZE</p>
+      <!-- added a button that should take the user to the Our-Story page  -->
+          
+      <div id="buttonWrapper">
+        <a href="our-story.html">
+          <button id ="loginButton" style="width:auto;" >Our Story</button>
+        </a>
+        <!-- button that would take user to the Sign-Up modal -->
+  
+        <!-- <button id ="loginButton" style="width:auto;" id="sign-up">Sign Up</button> -->
+        <button id="loginButton" onclick="document.getElementById('sign-up-modal').style.display='block'" style="width:auto;">Sign Up</button>
+  
+        <div id="sign-up-modal" class="modal">
+          <form class="modal-content animate" action="/action_page.php">
+            <div class="imgcontainer">
+              <p id="lilTitle2">FOODEAZE</p>
+            </div>
+            <!-- each ID matches the ID of other modal, so that it pulls the same user responses and inputs the same -->
+            <div class="container">
+              <label for="fname"><b>First Name</b></label>
+              <input type="text" placeholder="First Name" name="fname" id="signfname" required>
+              <label for="lname"><b>Last Name</b></label>
+              <input type="text" placeholder="Last Name" name="lname" id="signlname" required>
+              <label for="uname"><b>Create Username</b></label>
+              <input type="text" placeholder="Enter Username" name="uname" id="signuname" required>
+  
+              <label for="psw"><b>Create Password</b></label>
+              <input type="password" placeholder="Enter Password" name="psw" id="signpassword" required>
+              <label for="zipcode"><b>Zip Code</b></label>
+              <input for="zipcode" placeholder="00000" name="zcode" id="signzipCode" required>
+              <br><br>
+  
+              <button id="loginButton" type="submit" id="signcreateUser">Sign-Up</button>
+              <label>
+                <input type="checkbox" checked="checked" name="remember"> Remember me
+              </label>
+            </div>
+          </form>  
+        </div>
+  
+        <!-- button for returning users to login to their account -->
+        <button id="loginButton" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
+  
+        <div id="id01" class="modal">
+  
+          <form class="modal-content animate" action="/action_page.php">
+            <div class="imgcontainer">
+              <p id="lilTitle2">FOODEAZE</p>
+            </div>
+  
+            <div class="container">
+              <label for="uname"><b>Username</b></label>
+              <input type="text" placeholder="Enter Username" name="uname" id="logusername" required>
+  
+              <label for="psw"><b>Password</b></label>
+              <input type="password" placeholder="Enter Password" name="psw" id="logpassword" required>
+  
+              <button id="loginButton" type="submit" id="logsubmitUser">Login</button>
+              <label>
+                <input type="checkbox" checked="checked" name="remember" id="rememberMe"> Remember me
+              </label>
+            </div>
+  
+            <div class="container" style="background-color:#f1f1f1">
+              <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+              <span class="psw"><a href="http:www.google.com"> Forgot password? </a></span>
+            </div>
+          </form>
+        </div>
+        
+      </div>
+  
+    </div>
+      
+        
 			
 	<div class="wrapper">
 		<br>
