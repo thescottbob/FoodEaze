@@ -19,6 +19,9 @@ $("#foodSubmit").on("click", function (event) {
     if ( $("#noNut").is(":checked") ) {
         healthRestrictions.push("peanut-free")
     }
+    if ( $("#noTreeNut").is(":checked") ) {
+        healthRestrictions.push("tree-nut-free")
+    }
     if ( $("#noAlcohol").is(":checked") ) {
         healthRestrictions.push("alcohol-free")
     }
@@ -33,9 +36,20 @@ $("#foodSubmit").on("click", function (event) {
     let edamURL = `https://api.edamam.com/search?app_id=${edamAppID}&app_key=${edamApiKey}&q=${food}`
     // Add additional flags as necessary
     if (healthRestrictions.length>0) {
-        // Only supporting Peanut allergy for now
         if (healthRestrictions.includes("peanut-free")){
             edamURL += "&health="+"peanut-free"
+        }
+        if (healthRestrictions.includes("tree-nut-free")){
+            edamURL += "&health="+"tree-nut-free"
+        }
+        if (healthRestrictions.includes("alcohol-free")){
+            edamURL += "&health="+"alcohol-free"
+        } 
+        if (healthRestrictions.includes("vegan")){
+            edamURL += "&health="+"vegan"
+        }
+        if (healthRestrictions.includes("vegetarian")){
+            edamURL += "&health="+"vegetarian"
         }
     }
 
