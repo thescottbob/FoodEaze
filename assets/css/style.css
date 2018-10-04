@@ -159,8 +159,21 @@ input[type=text], input[type=password] {
     box-sizing: border-box;
 }
 
-/* Set a style for all buttons */
+/* Set a style for all buttons except SignUp button */
 #loginButton {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 0 15px;
+    border-radius: 10px;
+    border:none;
+    cursor: pointer;
+    width: 30%;
+    font-size: initial;
+}
+
+/* Set style for SignUp button (identical to other buttons, but it needs to have a different ID) */
+#signUpButton {
     background-color: #4CAF50;
     color: white;
     padding: 14px 20px;
