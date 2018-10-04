@@ -23,12 +23,12 @@
           
       <div id="buttonWrapper">
         <a href="our-story.html">
-          <button id ="loginButton" style="width:auto;" >Our Story</button>
+          <button class ="loginButton" style="width:auto;" >Our Story</button>
         </a>
         <!-- button that would take user to the Sign-Up modal -->
   
         <!-- <button id ="loginButton" style="width:auto;" id="sign-up">Sign Up</button> -->
-        <button id="loginButton" onclick="document.getElementById('sign-up-modal').style.display='block'" style="width:auto;">Sign Up</button>
+        <button class="loginButton" onclick="document.getElementById('sign-up-modal').style.display='block'" style="width:auto;">Sign Up</button>
   
         <div id="sign-up-modal" class="modal">
           <form class="modal-content animate" action="/action_page.php">
@@ -50,7 +50,7 @@
               <input for="zipcode" placeholder="00000" name="zcode" id="signzipCode" required>
               <br><br>
   
-              <button id="loginButton" type="submit" id="signcreateUser">Sign-Up</button>
+              <button class="loginButton" type="submit" id="signcreateUser">Sign-Up</button>
               <label>
                 <input type="checkbox" checked="checked" name="remember"> Remember me
               </label>
@@ -59,9 +59,9 @@
         </div>
   
         <!-- button for returning users to login to their account -->
-        <button id="loginButton" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
+        <button class="loginButton" onclick="document.getElementById('login-modal').style.display='block'" style="width:auto;">Login</button>
   
-        <div id="id01" class="modal">
+        <div id="login-modal" class="modal">
   
           <form class="modal-content animate" action="/action_page.php">
             <div class="imgcontainer">
@@ -75,14 +75,14 @@
               <label for="psw"><b>Password</b></label>
               <input type="password" placeholder="Enter Password" name="psw" id="logpassword" required>
   
-              <button id="loginButton" type="submit" id="logsubmitUser">Login</button>
+              <button class="loginButton" type="submit" id="logsubmitUser">Login</button>
               <label>
                 <input type="checkbox" checked="checked" name="remember" id="rememberMe"> Remember me
               </label>
             </div>
   
             <div class="container" style="background-color:#f1f1f1">
-              <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+              <button type="button" onclick="document.getElementById('login-modal').style.display='none'" class="cancelbtn">Cancel</button>
               <span class="psw"><a href="http:www.google.com"> Forgot password? </a></span>
             </div>
           </form>

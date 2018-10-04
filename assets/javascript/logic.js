@@ -122,7 +122,7 @@ $("#foodSubmit").on("click", function (event) {
 /************************************
  * Vanilla javascipt for login modal
  * ***********************************/
-var logInModal = document.getElementById('id01');
+var logInModal = document.getElementById('login-modal');
 var signUpModal = document.getElementById('sign-up-modal');
 
 // When the user clicks anywhere outside of the logInModal or signUpModal, close it
@@ -207,3 +207,7 @@ function signOut() {
         console.log(error.message);
      });
 }
+
+$("#signcreateUser").on("click", function() {
+    event.preventDefault()
+})
