@@ -178,6 +178,16 @@ var config = {
 };
 firebase.initializeApp(config);
 
+// Listener for signin/signout
+firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+      // User is signed in.
+    } else {
+      // No user is signed in.
+    }
+});
+
+// Function creates new user
 function newUser(email, password) {
     firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
         // Handle Errors here.
@@ -187,6 +197,7 @@ function newUser(email, password) {
       });
 }
 
+// Function signs in existing user
 function signIn(email, password) {
     firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
         console.log(error.code);
@@ -194,6 +205,7 @@ function signIn(email, password) {
      });
 }
 
+// Function signs out current user, if any
 function signOut() {
     firebase.auth().signOut().then(function() {
         console.log("Logged out!")
