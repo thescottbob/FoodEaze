@@ -208,6 +208,20 @@ function signOut() {
      });
 }
 
+
 $("#signcreateUser").on("click", function() {
     event.preventDefault()
+
+    // Get user info from form
+    let email = $("#signuname").val()
+    let password = $("#signpassword").val()
+    let fName = $("#signfname").val()
+    let lName = $("#signlname").val()
+    let zipCode = $("#signzipCode").val()
+
+    console.log(email, password, fName, lName, zipCode)
+
+
+    // Add user to database
+    // newUser(email, password)
 })
