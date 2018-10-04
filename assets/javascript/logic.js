@@ -201,6 +201,16 @@ function newUser(email, password) {
         var errorCode = error.code;
         var errorMessage = error.message;
         // ...
+      }).then(function(ref) {
+        console.log("SIGNUP THEN:")
+        console.log(ref.user)
+
+        firebase.database().ref('/users/'+ref.user.uid).set({
+            // Placeholder values
+            fname: "Bobby",
+            lname: "Hill",
+            zipCode: "90210"
+        })
       });
 }
 
@@ -213,6 +223,9 @@ function signIn(email, password) {
     firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
         console.log(error.code);
         console.log(error.message);
+     }).then(function(ref) {
+        console.log("THEN:")
+        console.log(ref.user)
      });
 }
 
