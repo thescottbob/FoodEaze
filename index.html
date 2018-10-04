@@ -17,86 +17,82 @@
   </head>
   <body>
 		
-		<div class="navbar">
-				<p id="lilTitle">FOODEAZE</p>
-				<!-- added a button that should take the user to the Our-Story page  -->
-		
-				
-				
-				<div id="buttonWrapper">
-					<a href="our-story.html">
-						<button id ="loginButton" style="width:auto;" >Our Story</button>
-					</a>
-				<!-- button that would take user to the Sign-Up modal -->
-				
-				
-				<!-- <button id ="loginButton" style="width:auto;" id="sign-up">Sign Up</button> -->
-					<button id ="loginButton" onclick="document.getElementById('sign-up-modal').style.display='block'" style="width:auto;">Sign Up</button>
-						<div id="sign-up-modal" class="modal">
-							<form class="modal-content animate" action="/action_page.php">
-									<div class="imgcontainer">
-											<p id="lilTitle2">FOODEAZE</p>
-									</div>
-									<!-- each ID matches the ID of other modal, so that it pulls the same user responses and inputs the same -->
-										<div class="container">
-											<label for="fname" id="fname"><b>First Name</b></label>
-											<input type="text" placeholder="First Name" name="fname" required>
-											<label for="lname" id="lname"><b>Last Name</b></label>
-											<input type="text" placeholder="Last Name" name="lname" required>
-											<label for="uname" id="uname"><b>Create Username</b></label>
-											<input type="text" placeholder="Enter Username" name="uname" required>
-					
-											<label for="psw" id="password"><b>Create Password</b></label>
-											<input type="password" placeholder="Enter Password" name="psw" required>
-											<label for="zipcode" id="zipCode"><b>Zip Code</b></label>
-											<input for="zipcode" placeholder="00000" name="zcode" required>
-											<br><br>
-												
-											<button id="loginButton" type="submit" id="creatUser">Sign-Up</button>
-											<label>
-												<input type="checkbox" checked="checked" name="remember"> Remember me
-											</label>
-										</div>
-							</form>
-						</div>
-							
-	
-				<!-- button for returning users to login to their account -->
-				<button id ="loginButton" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
-
-					<div id="id01" class="modal">
-					
-					<form class="modal-content animate" action="/action_page.php">
-						<div class="imgcontainer">
-								<p id="lilTitle2">FOODEAZE</p>
-						</div>
-
-						<div class="container">
-						<label for="uname"id="username"><b>Username</b></label>
-						<input type="text" placeholder="Enter Username" name="uname" required>
-
-						<label for="psw" id="password"><b>Password</b></label>
-						<input type="password" placeholder="Enter Password" name="psw" required>
-							
-						<button id="loginButton"type="submit" id="submitUser">Login</button>
-						<label>
-							<input type="checkbox" checked="checked" name="remember"id="rememberMe"> Remember me
-						</label>
-						</div>
-
-						<div class="container" style="background-color:#f1f1f1">
-						<button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-						<span class="psw"><a href="http:www.google.com"> Forgot password? </a></span>
-						</div>
-					</form>
-					</div>
-				</div>
-			</div>
-
-		
-	
-	
-	
+    <div class="navbar">
+      <p id="lilTitle">FOODEAZE</p>
+      <!-- added a button that should take the user to the Our-Story page  -->
+          
+      <div id="buttonWrapper">
+        <a href="our-story.html">
+          <button class ="loginButton" style="width:auto;" >Our Story</button>
+        </a>
+        <!-- button that would take user to the Sign-Up modal -->
+  
+        <!-- <button id ="loginButton" style="width:auto;" id="sign-up">Sign Up</button> -->
+        <button class="loginButton" onclick="document.getElementById('sign-up-modal').style.display='block'" style="width:auto;">Sign Up</button>
+  
+        <div id="sign-up-modal" class="modal">
+          <form class="modal-content animate" action="/action_page.php">
+            <div class="imgcontainer">
+              <p id="lilTitle2">FOODEAZE</p>
+            </div>
+            <!-- each ID matches the ID of other modal, so that it pulls the same user responses and inputs the same -->
+            <div class="container">
+              <label for="fname"><b>First Name</b></label>
+              <input type="text" placeholder="First Name" name="fname" id="signfname" required>
+              <label for="lname"><b>Last Name</b></label>
+              <input type="text" placeholder="Last Name" name="lname" id="signlname" required>
+              <label for="uname"><b>Create Username</b></label>
+              <input type="text" placeholder="Enter Username" name="uname" id="signuname" required>
+  
+              <label for="psw"><b>Create Password</b></label>
+              <input type="password" placeholder="Enter Password" name="psw" id="signpassword" required>
+              <label for="zipcode"><b>Zip Code</b></label>
+              <input for="zipcode" placeholder="00000" name="zcode" id="signzipCode" required>
+              <br><br>
+  
+              <button class="loginButton" type="submit" id="signcreateUser">Sign-Up</button>
+              <label>
+                <input type="checkbox" checked="checked" name="remember"> Remember me
+              </label>
+            </div>
+          </form>  
+        </div>
+  
+        <!-- button for returning users to login to their account -->
+        <button class="loginButton" onclick="document.getElementById('login-modal').style.display='block'" style="width:auto;">Login</button>
+  
+        <div id="login-modal" class="modal">
+  
+          <form class="modal-content animate" action="/action_page.php">
+            <div class="imgcontainer">
+              <p id="lilTitle2">FOODEAZE</p>
+            </div>
+  
+            <div class="container">
+              <label for="uname"><b>Username</b></label>
+              <input type="text" placeholder="Enter Username" name="uname" id="logusername" required>
+  
+              <label for="psw"><b>Password</b></label>
+              <input type="password" placeholder="Enter Password" name="psw" id="logpassword" required>
+  
+              <button class="loginButton" type="submit" id="logsubmitUser">Login</button>
+              <label>
+                <input type="checkbox" checked="checked" name="remember" id="rememberMe"> Remember me
+              </label>
+            </div>
+  
+            <div class="container" style="background-color:#f1f1f1">
+              <button type="button" onclick="document.getElementById('login-modal').style.display='none'" class="cancelbtn">Cancel</button>
+              <span class="psw"><a href="http:www.google.com"> Forgot password? </a></span>
+            </div>
+          </form>
+        </div>
+        
+      </div>
+  
+    </div>
+      
+        
 			
 	<div class="wrapper">
 		<br>
@@ -108,11 +104,12 @@
 				<img class="foodPics2" src="assets/images/noodles.png" alt="Noodles">
 				<p id="title">FOODEAZE</p>
 				<!--<img class="foodPics2" src="assets/images/fried-chicken.png" alt="Fried-Chicken">-->
-			</span></div>	
-	<br>
+      </span>
+    </div>	
+	  <br>
     <form>
-        <div class="form-group">
-              <label for="exampleInputEmail1">What do you want to eat tonight?</label>
+      <div class="form-group">
+        <label for="exampleInputEmail1">What do you want to eat tonight?</label>
 			  <input type="food" class="form-control" id="exampleFoodInput" aria-describedby="foodInput" placeholder="Enter food">
 				<br>  
 			  <span>
@@ -120,21 +117,21 @@
 					<label class ="refinements">
 						<input type="checkbox"  name="peanuts" id="noNut">Peanut Free
 					</label>
-					<label class="refinements">
-						<input type="checkbox"  name="alcohol" id="noAlcohol">Alcohol Free
-					</label> 
 					<label class ="refinements">
-						<input type="checkbox"  name="noTreeNut" id="noTreeNut">Nut Free
+              <input type="checkbox"  name="noTreeNut" id="noTreeNut">Nut Free
+          </label> 
+          <label class="refinements">
+						<input type="checkbox"  name="alcohol" id="noAlcohol">Alcohol Free
 					</label> 
 					<label class ="refinements">
 						<input type="checkbox"  name="vegan" id="vegan">Vegan
 					</label>
 					<label class ="refinements">
-						<input type="checkbox"  name="vegatarian" id="vegatarian">Vegatarian
+						<input type="checkbox"  name="vegetarian" id="vegetarian">Vegetarian
 					</label>
 				</span>
-              <br><button type="submit" class="btn btn-primary" id="foodSubmit">Submit</button>
-        </div>
+        <br><button type="submit" class="btn btn-primary" id="foodSubmit">Submit</button>
+      </div>
     </form>
    
    
@@ -146,20 +143,41 @@
         
         
         <div id="Recipes" class="tabcontent">
-		<div class="innerCard"><br><h3>Recipes</h3>
-        <p id="recipeData"><img class="foodPics1" src="assets/images/burger.png" alt="Burger"><br>Search for your favorite recipes and let us know if you have any dietery restrictions. We would love to help you find recipes that are right for you. :)</div>
-	</div>
-        
+          <div class="innerCard">
+            <br>
+            <h3>Recipes</h3>
+            <p id="recipeData">
+              <img class="foodPics1" src="assets/images/burger.png" alt="Burger">
+              <br>
+              Search for your favorite recipes and let us know if you have any dietery restrictions. We would love to help you find recipes that are right for you. :)
+            </p>
+          </div>
+        </div>
+            
         <div id="Delivery" class="tabcontent">
-		<div class="innerCard"><br><h3>Delivery</h3>
-        <p id="deliveryData"><img class="foodPics1" src="assets/images/taco.png" alt="Taco"><br>Let us help locate ways to have your favorite foods delivered right to your door </p> 
-        </div></div>
-        
+          <div class="innerCard">
+            <br>
+            <h3>Delivery</h3>
+            <p id="deliveryData">
+              <img class="foodPics1" src="assets/images/taco.png" alt="Taco">
+              <br>
+              Let us help locate ways to have your favorite foods delivered right to your door
+            </p> 
+          </div>
+        </div>
+            
         <div id="Restaurant" class="tabcontent">
-	    <div class="innerCard"><br><h3>Restaurants</h3>
-				   <p id="restaurantData"><img class="foodPics1" src="assets/images/donut.png" alt="Donut"><br>We can find restaurants in your neighborhood that serve the food that you are looking for.</p>
-			</div>
-		</div>
+          <div class="innerCard">
+            <br>
+            <h3>Restaurants</h3>
+            <p id="restaurantData">
+              <img class="foodPics1" src="assets/images/donut.png" alt="Donut">
+              <br>
+              We can find restaurants in your neighborhood that serve the food that you are looking for.
+          </p>
+        </div>
+
+      </div>
 	</div>
 
 	<div class="creditWrapper">

@@ -19,6 +19,9 @@ $("#foodSubmit").on("click", function (event) {
     if ( $("#noNut").is(":checked") ) {
         healthRestrictions.push("peanut-free")
     }
+    if ( $("#noTreeNut").is(":checked") ) {
+        healthRestrictions.push("tree-nut-free")
+    }
     if ( $("#noAlcohol").is(":checked") ) {
         healthRestrictions.push("alcohol-free")
     }
@@ -33,9 +36,20 @@ $("#foodSubmit").on("click", function (event) {
     let edamURL = `https://api.edamam.com/search?app_id=${edamAppID}&app_key=${edamApiKey}&q=${food}`
     // Add additional flags as necessary
     if (healthRestrictions.length>0) {
-        // Only supporting Peanut allergy for now
         if (healthRestrictions.includes("peanut-free")){
             edamURL += "&health="+"peanut-free"
+        }
+        if (healthRestrictions.includes("tree-nut-free")){
+            edamURL += "&health="+"tree-nut-free"
+        }
+        if (healthRestrictions.includes("alcohol-free")){
+            edamURL += "&health="+"alcohol-free"
+        } 
+        if (healthRestrictions.includes("vegan")){
+            edamURL += "&health="+"vegan"
+        }
+        if (healthRestrictions.includes("vegetarian")){
+            edamURL += "&health="+"vegetarian"
         }
     }
 
@@ -122,7 +136,7 @@ $("#foodSubmit").on("click", function (event) {
 /************************************
  * Vanilla javascipt for login modal
  * ***********************************/
-var logInModal = document.getElementById('id01');
+var logInModal = document.getElementById('login-modal');
 var signUpModal = document.getElementById('sign-up-modal');
 
 // When the user clicks anywhere outside of the logInModal or signUpModal, close it
@@ -152,3 +166,89 @@ function openPage(pageName,elmnt,color) {
 }
 // Get the element with id="defaultOpen" and click on it
 document.getElementById("defaultOpen").click();
+
+
+/***********************************************
+ * 
+ * User authentication
+ * 
+ **********************************************/
+
+// Initialize Firebase
+var config = {
+    apiKey: "AIzaSyAuXYrTrmD1F3UToiV9MGGMuDoArVTOSp8",
+    authDomain: "foodeaze-92954.firebaseapp.com",
+    databaseURL: "https://foodeaze-92954.firebaseio.com",
+    projectId: "foodeaze-92954",
+    storageBucket: "foodeaze-92954.appspot.com",
+    messagingSenderId: "549845192920"
+};
+firebase.initializeApp(config);
+
+// Listener for signin/signout
+firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+      // User is signed in.
+    } else {
+      // No user is signed in.
+    }
+});
+
+// Function creates new user
+function newUser(email, password) {
+    firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        // ...
+      });
+}
+
+// Function signs in existing user
+function signIn(email, password) {
+    // Force values for testing
+    email = "bob@exam.com"
+    password = "password"
+
+    firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+        console.log(error.code);
+        console.log(error.message);
+     });
+}
+
+// Function signs out current user, if any
+function signOut() {
+    firebase.auth().signOut().then(function() {
+        console.log("Logged out!")
+     }, function(error) {
+        console.log(error.code);
+        console.log(error.message);
+     });
+}
+
+
+$("#signcreateUser").on("click", function() {
+    event.preventDefault()
+
+    // Get user info from form
+    let email = $("#signuname").val()
+    let password = $("#signpassword").val()
+    let fName = $("#signfname").val()
+    let lName = $("#signlname").val()
+    let zipCode = $("#signzipCode").val()
+
+    console.log(email, password, fName, lName, zipCode)
+
+
+    // Add user to database
+    // newUser(email, password)
+})
+
+$("#logsubmitUser").on("click", function() {
+    event.preventDefault()
+
+    let email = $("#logusername").val()
+    let password = $("#logpassword").val()
+
+    signIn(email, password)
+})
