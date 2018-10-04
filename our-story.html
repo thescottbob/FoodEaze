@@ -18,12 +18,16 @@
   <div class="navbar">
       <p id="lilTitle">FOODEAZE</p>
       <!-- added a button that should take the user to the Our-Story page  -->
-      <a href="index.html"><button id ="loginButton" style="width:auto;" id="our-story">Home</button></a>
+      
+      <div id="buttonWrapper">
+        <a href="index.html">
+          <button id ="loginButton" style="width:auto;" >Home</button>
+        </a>
       <!-- button that would take user to the Sign-Up modal -->
       
       
       <!-- <button id ="loginButton" style="width:auto;" id="sign-up">Sign Up</button> -->
-      <button id ="loginButton" onclick="document.getElementById('sign-up-modal').style.display='block'" style="width:auto;">Sign Up</button>
+        <button id ="loginButton" onclick="document.getElementById('sign-up-modal').style.display='block'" style="width:auto;">Sign Up</button>
           <div id="sign-up-modal" class="modal">
             <form class="modal-content animate" action="/action_page.php">
                 <div class="imgcontainer">
@@ -49,7 +53,6 @@
                       <input type="checkbox" checked="checked" name="remember"> Remember me
                     </label>
                   </div>
-                  
             </form>
           </div>
             
@@ -83,10 +86,11 @@
           </div>
         </form>
         </div>
-  </div>
-      
+      </div>
+    </div>
 
-  </div>
+  
+
     <div class="wrapper">
 	<br>
 			<div id="header">

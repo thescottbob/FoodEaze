@@ -1,11 +1,6 @@
-/*********************************************
- * Edamam API call
- *******************************************/
-
-// Edamam App ID: ed77f616
-// Edamam API Key: 976bea25ef3c24d77968f5c1879d9012
-// Valid Diet filters:           [balanced, high-protein, low-fat, low-carb]
-// Valid Health/Allergy filters: [vegan, vegetarian, sugar-conscious, peanut-free, tree-nut-free, alcohol-free]
+// Valid Diet filters (Edamam):           [balanced, high-protein, low-fat, low-carb]
+// Valid Health/Allergy filters (Edamam): [vegan, vegetarian, sugar-conscious, peanut-free, tree-nut-free, alcohol-free]
+// Valid Diet filters (OpenMenu): [vegan, vegetarian, halal, kosher, gluten-free]
 
 let edamAppID = "ed77f616";
 let edamApiKey = "976bea25ef3c24d77968f5c1879d9012";
@@ -24,9 +19,11 @@ $("#foodSubmit").on("click", function (event) {
     if ( $("#noNut").is(":checked") ) {
         healthRestrictions.push("peanut-free")
     }
-    if ( $("#noShell").is(":checked") ) {
-        // Free Edamam doesn't support shellfish restriction
-        // healthRestrictions.push("shellfish-free")
+    if ( $("#noAlcohol").is(":checked") ) {
+        healthRestrictions.push("alcohol-free")
+    }
+    if ( $("#vegan").is(":checked") ) {
+        healthRestrictions.push("vegan")
     }
     if ( $("#vegetarian").is(":checked") ) {
         healthRestrictions.push("vegetarian")
@@ -37,7 +34,7 @@ $("#foodSubmit").on("click", function (event) {
     // Add additional flags as necessary
     if (healthRestrictions.length>0) {
         // Only supporting Peanut allergy for now
-        if (healthRestrictions.contains("peanut-free")){
+        if (healthRestrictions.includes("peanut-free")){
             edamURL += "&health="+"peanut-free"
         }
     }
@@ -125,23 +122,19 @@ $("#foodSubmit").on("click", function (event) {
 /************************************
  * Vanilla javascipt for login modal
  * ***********************************/
-var modal = document.getElementById('id01');
+var logInModal = document.getElementById('id01');
+var signUpModal = document.getElementById('sign-up-modal');
 
-// When the user clicks anywhere outside of the modal, close it
+// When the user clicks anywhere outside of the logInModal or signUpModal, close it
 window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
+    if (event.target == logInModal) {
+        logInModal.style.display = "none";
+    }
+    else if (event.target == signUpModal) {
+        signUpModal.style.display = "none";
     }
 }
-
-var modal = document.getElementById('sign-up-modal');
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
+   
 // Vanilla javascipt for tabs
 function openPage(pageName,elmnt,color) {
     var i, tabcontent, tablinks;

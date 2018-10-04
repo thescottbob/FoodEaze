@@ -29,11 +29,9 @@ h3{
     text-align: center;
     padding: auto;
     text-decoration: none;
-    font-size: 17px;
   }
   
   .navbar a:hover {
-    background: #ddd;
     color: black;
   }
 
@@ -107,12 +105,12 @@ h3{
 }
 
 #lilTitle{
-    font-size: 20px;
+    font-size: 28px;
     font-family: 'Fredoka One', cursive;
     font-weight: bolder;
     letter-spacing:10px;
     color: #fefefe;
-    margin-top: 12px;
+    margin-top: 16px;
     margin-left: 20px;
     
 }
@@ -166,12 +164,12 @@ input[type=text], input[type=password] {
     background-color: #4CAF50;
     color: white;
     padding: 14px 20px;
-    margin: 0;
+    margin: 0 15px;
     border-radius: 10px;
     border:none;
     cursor: pointer;
     width: 30%;
-    margin-right: 15px;
+    font-size: initial;
 }
 
 button:hover {
@@ -287,7 +285,7 @@ span.psw {
 }
 
 .refinements {
-    width:15%;
+    width:12%;
     margin: 15px;
 }
 
@@ -317,23 +315,31 @@ li {
 .recipeImg {
     width: 200px;
     height: 200px;
-    border: solid black 2px;
+    text-align: center;
+    margin:auto;
+    padding:20px;
 }
 .recipeName {
     font-size: 35px;
     font-family: 'Times New Roman', Times, serif;
-    border: solid black 2px;
+    text-align: center;
+    margin:auto;
 }
 .recipeHealthLabel {
     font-size: 20px;
     font-family: 'Times New Roman', Times, serif;
-    border: solid black 2px;
+    text-align: center;
+    margin:auto;
 }
 .recipeRow {
     border: solid black 2px;
     width: 90%;
-    margin:auto;
+    margin:5%;
+    border-radius: 12px;
     
 }
 
 
+.checkbox{
+    margin-left: 10px;
+}
