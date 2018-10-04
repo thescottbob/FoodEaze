@@ -200,7 +200,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 });
 
 // Function creates new user
-function newUser(email, password) {
+function newUser(email, password, fName, lName, zipCode) {
     firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
         // Handle Errors here.
         var errorCode = error.code;
@@ -212,9 +212,9 @@ function newUser(email, password) {
 
         firebase.database().ref('/users/'+ref.user.uid).set({
             // Placeholder values
-            fname: "Bobby",
-            lname: "Hill",
-            zipCode: "90210"
+            'fname': fName,
+            'lname': lName,
+            'zipCode': zipCode
         })
       });
 }
@@ -244,7 +244,7 @@ function signOut() {
      });
 }
 
-
+// Listener on sign-up submit button to create new user
 $("#signcreateUser").on("click", function() {
     event.preventDefault()
 
@@ -259,7 +259,7 @@ $("#signcreateUser").on("click", function() {
 
 
     // Add user to database
-    // newUser(email, password)
+    newUser(email, password, fName, lName, zipCode)
 })
 
 $("#logsubmitUser").on("click", function() {
