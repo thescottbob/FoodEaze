@@ -189,6 +189,11 @@ firebase.initializeApp(config);
 firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
       // User is signed in.
+          
+      firebase.database().ref("/users/"+user.uid).once("value",function(snap) {
+          let data = snap.val()
+          console.log(`Welcome ${data.fname} ${data.lname}`)
+      })
     } else {
       // No user is signed in.
     }
