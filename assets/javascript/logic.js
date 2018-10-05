@@ -1,3 +1,8 @@
+// Hide the table headers for our API results on page load. They will be revealed once the Submut button is pressed.
+window.onload = function() {
+    $(".col").hide();
+  };
+
 // Valid Diet filters (Edamam):           [balanced, high-protein, low-fat, low-carb]
 // Valid Health/Allergy filters (Edamam): [vegan, vegetarian, sugar-conscious, peanut-free, tree-nut-free, alcohol-free]
 // Valid Diet filters (OpenMenu): [vegan, vegetarian, halal, kosher, gluten-free]
@@ -12,6 +17,7 @@ let healthRestrictions = [];
 // Make API calls when food search form is submitted
 $("#foodSubmit").on("click", function (event) {
     event.preventDefault();
+    $(".col").show();
 
     // Get info from food form
     food = $("#exampleFoodInput").val()
@@ -113,12 +119,10 @@ $("#foodSubmit").on("click", function (event) {
       let newRow = $("<div>").addClass("row restaurantRow");
 
       // Add restaurant name with hyperlink to restaurant website
-      newRow.append(
-        $("<a>")
-          .addClass("col restaurantName")
-          .text(res.restaurant_name)
-        //   .attr("href", website_url)
-      );
+      newRow.append($("<a>").addClass("col restaurantName").text(res.restaurant_name).attr("href", website_url));
+
+    //   // Add recipe name with hyperlink to source
+    //   newRow.append($("<a>").addClass("col recipeName").text(r.label).attr("href", r.url))
 
       // Add restaurant cuisine type
       newRow.append(
