@@ -23,17 +23,7 @@ h3{
   }
   
   
-  .navbar a {
-    float: left;
-    display: block;
-    text-align: center;
-    padding: auto;
-    text-decoration: none;
-  }
-  
-  .navbar a:hover {
-    color: black;
-  }
+
 
 /* Style tab links */
 .tablink {
@@ -45,7 +35,7 @@ h3{
     cursor: pointer;
     padding: 20px;
     font-size: 20px;
-    width: 33.3333%;
+    width: 50%;
     font-family: 'Fredoka One', cursive;
 }
 
@@ -62,7 +52,7 @@ h3{
 }
 
 #Recipes {background-color: #f25f5c;}
-#Delivery {background-color: #70c1b3;}
+/* #Delivery {background-color: #70c1b3;} */
 #Restaurant {background-color: lightsalmon;}
 
 .form-group {
@@ -155,7 +145,7 @@ h3{
     
 }
 
-input[type=text], input[type=password] {
+input[type=email], input[type=password], input[type=text] {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -268,9 +258,7 @@ span.psw {
        display: block;
        float: none;
     }
-    .cancelbtn {
-       width: 100%;
-    }
+   
 
     img.foodPics2{
         display: none;
@@ -282,7 +270,7 @@ span.psw {
     }
 
     .tablink{
-        font-size: 12px;
+        font-size: 18px;
     }
 
     .loginButton {
@@ -322,7 +310,6 @@ span.psw {
             cursor: pointer;
             width: 30%;
             font-size: 14px;
-            margin-left: 33px;
         }
    
 }
@@ -343,6 +330,12 @@ span.psw {
 }
 li {
     font-size:18px;
+}
+
+.col {
+    font-weight: bolder;
+    font-size: 20px;
+    text-align: center;
 }
 /* added  location and editing to each card so it shows us as best as possible in the pictures*/
 #ourPhotos {
@@ -384,13 +377,13 @@ li {
 /* style for returned data from openMenu API*/
 
 .menuItemName {
-    font-size: 35px;
+    font-size: 20px;
     font-family: 'Times New Roman', Times, serif;
     text-align: center;
     margin:auto;
 }
 .restaurantName {
-    font-size: 20px;
+    font-size: 25px;
     font-family: 'Times New Roman', Times, serif;
     text-align: center;
     margin:auto;
@@ -402,8 +395,31 @@ li {
     border-radius: 12px;
     
 }
-.col {
-    font-weight: bolder;
+
+.cuisineType {
     font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
     text-align: center;
+<<<<<<< HEAD
+    margin:auto;
+    
+}
+
+.menuItemDescription {
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+    margin:auto;
+    
+}
+
+
+#buttonWrapper{
+    display: -webkit-inline-box;
+}
+
+#ourStory{
+    color:white;
+=======
+>>>>>>> 4fdf8b5b3466d2221fc8f088edd64f91fcaa9a31
 }

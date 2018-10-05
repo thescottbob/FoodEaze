@@ -22,9 +22,11 @@
       <!-- added a button that should take the user to the Our-Story page  -->
           
       <div id="buttonWrapper">
-        <a href="our-story.html">
-          <button class ="loginButton" style="width:auto;" >Our Story</button>
-        </a>
+		<div id ="ourStory">
+			<a href="our-story.html">
+				<button class ="loginButton" style="width:auto;" >Our Story</button>
+			</a>
+	 	</div>
         <!-- button that would take user to the Sign-Up modal -->
   
         <!-- <button id ="loginButton" style="width:auto;" id="sign-up">Sign Up</button> -->
@@ -106,12 +108,12 @@
 				<img class="foodPics2" src="assets/images/noodles.png" alt="Noodles">
 				<p id="title">FOODEAZE</p>
 				<!--<img class="foodPics2" src="assets/images/fried-chicken.png" alt="Fried-Chicken">-->
-      </span>
-    </div>	
+      		</span>
+    	</div>	
 	  <br>
     <form>
       <div class="form-group">
-        <label for="exampleInputEmail1">What do you want to eat tonight?</label>
+        <label for="exampleInputEmail1">What do you want to eat today?</label>
 			  <input type="food" class="form-control" id="exampleFoodInput" aria-describedby="foodInput" placeholder="Enter food">
 				<br>  
 			  <span>
@@ -142,20 +144,19 @@
     
     <div class="card-body">
         <button class="tablink" onclick="openPage('Recipes', this, '#f25f5c')" id="defaultOpen">Recipes</button>
-        <button class="tablink" onclick="openPage('Delivery', this, '#70c1b3')">Delivery</button>
+        <!-- <button class="tablink" onclick="openPage('Delivery', this, '#70c1b3')">Delivery</button> -->
         <button class="tablink" onclick="openPage('Restaurant', this, 'lightsalmon')">Restaurants</button>
         
         
         <div id="Recipes" class="tabcontent">
           <div class="innerCard">
             <br>
-			<h3>Recipes</h3>
 			<hr>
 			<div class='row'>
 				<div class="col">Recipe Image</div>
 				<div class="col">Recipe Name</div>
 				<div class="col">Known Allergens</div>
-			</div>
+			</div><br>
             <p id="recipeData">
               <img class="foodPics1" src="assets/images/burger.png" alt="Burger">
               <br>
@@ -164,7 +165,7 @@
           </div>
         </div>
             
-        <div id="Delivery" class="tabcontent">
+        <!-- <div id="Delivery" class="tabcontent">
           <div class="innerCard">
             <br>
 			<h3>Delivery</h3>
@@ -175,19 +176,18 @@
               Let us help locate ways to have your favorite foods delivered right to your door
             </p> 
           </div>
-        </div>
+        </div> -->
             
         <div id="Restaurant" class="tabcontent">
           <div class="innerCard">
             <br>
-			<h3>Restaurants</h3>
 			<hr>
 			<div class='row'>
 				<div class="col">Restaurant Name</div>
 				<div class="col">Cuisine Type</div>
 				<div class="col">Menu Item</div>
 				<div class="col">Description</div>
-			</div>
+			</div><br>
             <p id="restaurantData">
               <img class="foodPics1" src="assets/images/donut.png" alt="Donut">
               <br>
@@ -203,7 +203,7 @@
 		 title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0"
 		 target="_blank">CC 3.0 BY</a></div>
 		 <div>Menus provided by <a href="http://www.openmenu.com" title="openMenu">OpenMenu</a> </div>
-	<div id="edamam-badge" data-color="black"></div>
+	<div id="edamam-badge" data-color="black">Recipes provided by <a href="https://www.edamam.com/">Edamam</a></div>
 	</div>
 
 	<!-- Optional JavaScript -->
