@@ -117,7 +117,7 @@ h3{
     letter-spacing:20px;
     color:navy;
     margin-top: 12px;
-    margin-left: 20px;
+    text-align: center;
     
 }
 
@@ -159,11 +159,11 @@ input[type=email], input[type=password], input[type=text] {
     background-color: #4CAF50;
     color: white;
     padding: 14px 20px;
-    margin: 0 13px;
+    margin: 0 5px;
     border-radius: 10px;
     border:none;
     cursor: pointer;
-    width: 30%;
+    width: 15%%;
     font-size: initial;
 }
 
@@ -282,7 +282,6 @@ span.psw {
         cursor: pointer;
         width: 30%;
         font-size: 14px;
-        margin-left: 33px;
     }
 
 }
@@ -310,6 +309,7 @@ span.psw {
             cursor: pointer;
             width: 30%;
             font-size: 14px;
+            margin:auto;
         }
    
 }
@@ -400,7 +400,6 @@ li {
     font-size: 20px;
     font-family: 'Times New Roman', Times, serif;
     text-align: center;
-<<<<<<< HEAD
     margin:auto;
     
 }
@@ -418,8 +417,24 @@ li {
     display: -webkit-inline-box;
 }
 
+#logOut {
+    display: -webkit-inline-box;
+}
+
+#nameDisplay{
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 0 5px;
+    border-radius: 10px;
+    border:none;
+    cursor: pointer;
+    width: 15%%;
+    font-size: initial;
+}
+
 #ourStory{
     color:white;
-=======
->>>>>>> 4fdf8b5b3466d2221fc8f088edd64f91fcaa9a31
+    margin-right: 5px;
 }
+
