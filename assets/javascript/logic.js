@@ -246,13 +246,14 @@ function newUser(email, password, fName, lName, zipCode) {
             'zipCode': zipCode
         })
 
-        // Clear sign-up form
+        // Clear sign-up form and hide it
         $("#email").val("")
         $("#signpassword").val("")
         $("#signfname").val("")
         $("#signlname").val("")
         $("#signzipCode").val("")
 
+        $("#sign-up-modal").hide()
       });
 }
 
