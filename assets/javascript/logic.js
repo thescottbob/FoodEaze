@@ -299,6 +299,16 @@ $("#signcreateUser").on("click", function() {
         console.log("FAIL: PASSWORD MUST HAVE 6 OR MORE CHARACTERS")
     }
 
+    // Postal code must be 5-digit US postal code
+    if (zipCode.length!==5) {
+        valid = false;
+        console.log("FAIL: ZIP CODE MUST HAVE EXACTLY 5 DIGITS")
+    } else if (isNaN(zipCode)) {
+        valid = false;
+        console.log("FAIL: ZIP CODES MAY CONSIST OF NUMBERS ONLY")
+    }
+
+    // Add user if valid
     if (valid) {
         // Add user to database
         newUser(email, password, fName, lName, zipCode)
