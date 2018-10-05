@@ -215,6 +215,7 @@ firebase.auth().onAuthStateChanged(function(user) {
       // Hide Sign Up/Login buttons
       $("#loginWrapper").hide()
       // Show user name message and Logout button
+      $("#logOut").append( $("<div>").addClass().text("Bobby") )
 
     } else {
       // No user is signed in.
