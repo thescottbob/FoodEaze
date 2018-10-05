@@ -91,6 +91,7 @@ h3{
 
 .card-group {
     letter-spacing: 1px;
+    text-align: left;
 }
 
 #title{
@@ -187,10 +188,7 @@ button:hover {
     background-color: #f44336;
     border-radius: 12px;
 }
-.creditWrapper {
-    font-size: 13px;
-    text-align: center;
-}
+
 
 
 .container {
@@ -241,6 +239,12 @@ span.psw {
     color: red;
     cursor: pointer;
 }
+
+.creditWrapper {
+    font-size: 13px;
+    text-align: center;
+}
+
 
 /* Add Zoom Animation */
 .animate {
@@ -365,7 +369,7 @@ li {
     border-radius: 12px;
     
 }
-
+/* style for returned data from openMenu API*/
 
 .menuItemName {
     font-size: 35px;
