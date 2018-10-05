@@ -297,3 +297,5 @@ $("#logsubmitUser").on("click", function() {
 
     signIn(email, password)
 })
+
+$("#logoutBtn").on("click", signOut)
