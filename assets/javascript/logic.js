@@ -293,6 +293,14 @@ $("#signcreateUser").on("click", function() {
     // Validate info
     let valid = true
 
+    // First name field must be one characters or more
+    if (fName.length<1) {
+        valid = false;
+        console.log("FAIL: FIRST NAME MUST BE AT LEAST ONE CHARACTER LONG")
+    }
+
+    // Last name field not required
+
     // Password must be 6 characters or more
     if (password.length<6) {
         valid = false;
@@ -312,6 +320,8 @@ $("#signcreateUser").on("click", function() {
     if (valid) {
         // Add user to database
         newUser(email, password, fName, lName, zipCode)
+    } else {
+        console.log("SIGN-UP FAILED")
     }
 })
 
