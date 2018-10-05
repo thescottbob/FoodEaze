@@ -214,16 +214,17 @@ firebase.auth().onAuthStateChanged(function(user) {
       firebase.database().ref("/users/"+user.uid).once("value",function(snap) {
           let data = snap.val()
           console.log(`Welcome ${data.fname} ${data.lname}`)
+          $("#nameDisplay").text(data.fname)      
       })
       
       // Hide Sign Up/Login buttons
       $("#loginWrapper").hide()
       // Show user name message and Logout button
-      $("#logOut").append( $("<div>").addClass().text("Bobby") )
-      $("#logOut").append( $('<button class="loginButton" style="width:auto;">Logout</button>') )
+      $("#logOut").show()
     } else {
       // No user is signed in.
       $("#loginWrapper").show()
+      $("#logOut").hide()
     }
 });
 
