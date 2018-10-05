@@ -221,9 +221,9 @@ function newUser(email, password, fName, lName, zipCode) {
 
 // Function signs in existing user
 function signIn(email, password) {
-    // Force values for testing
-    email = "bob@exam.com"
-    password = "password"
+    // Get values from sign-in form
+    email = $("#logusername").val()
+    password = $("#logpassword").val()
 
     firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
         console.log(error.code);
