@@ -309,7 +309,7 @@ span.psw {
             cursor: pointer;
             width: 30%;
             font-size: 14px;
-            margin:27px;
+            margin:auto;
         }
    
 }
@@ -415,6 +415,22 @@ li {
 
 #buttonWrapper{
     display: -webkit-inline-box;
+}
+
+#logOut {
+    display: -webkit-inline-box;
+}
+
+#nameDisplay{
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 0 5px;
+    border-radius: 10px;
+    border:none;
+    cursor: pointer;
+    width: 15%%;
+    font-size: initial;
 }
 
 #ourStory{
