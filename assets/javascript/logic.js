@@ -211,6 +211,11 @@ firebase.auth().onAuthStateChanged(function(user) {
           let data = snap.val()
           console.log(`Welcome ${data.fname} ${data.lname}`)
       })
+      
+      // Hide Sign Up/Login buttons
+      $("#loginWrapper").hide()
+      // Show user name message and Logout button
+      
     } else {
       // No user is signed in.
     }
@@ -238,9 +243,6 @@ function newUser(email, password, fName, lName, zipCode) {
 
 // Function signs in existing user
 function signIn(email, password) {
-    // Get values from sign-in form
-    email = $("#logusername").val()
-    password = $("#logpassword").val()
 
     firebase.auth().signInWithEmailAndPassword(email, password).then(function(ref) {
         console.log("LOGIN: SUCCESS")
@@ -267,7 +269,7 @@ $("#signcreateUser").on("click", function() {
     event.preventDefault()
 
     // Get user info from form
-    let email = $("#signuname").val()
+    let email = $("#email").val()
     let password = $("#signpassword").val()
     let fName = $("#signfname").val()
     let lName = $("#signlname").val()
@@ -283,7 +285,7 @@ $("#signcreateUser").on("click", function() {
 $("#logsubmitUser").on("click", function() {
     event.preventDefault()
 
-    let email = $("#logusername").val()
+    let email = $("#logemail").val()
     let password = $("#logpassword").val()
 
     signIn(email, password)
