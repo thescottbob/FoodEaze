@@ -119,10 +119,7 @@ $("#foodSubmit").on("click", function (event) {
       let newRow = $("<div>").addClass("row restaurantRow");
 
       // Add restaurant name with hyperlink to restaurant website
-      newRow.append($("<a>").addClass("col restaurantName").text(res.restaurant_name).attr("href", website_url));
-
-    //   // Add recipe name with hyperlink to source
-    //   newRow.append($("<a>").addClass("col recipeName").text(r.label).attr("href", r.url))
+      newRow.append($("<a>").addClass("col restaurantName").text(res.restaurant_name));
 
       // Add restaurant cuisine type
       newRow.append(
@@ -138,18 +135,14 @@ $("#foodSubmit").on("click", function (event) {
           .text(res.menu_item_name)
       );
 
-      // Add menu item description
+      // Add restaurant address
       newRow.append(
         $("<div>")
-          .addClass("col menuItemDescription")
-          .text(res.menu_item_description)
+          .addClass("col restaurantAddress")
+          .text(res.address_1)
       );
 
-      var divider = $("<hr>").attr("color", "black").attr("thickness", "20px");
-
       $("#restaurantData").append(newRow);
-      $("#restaurantData").append(divider);
-
     } 
   });
 })
@@ -210,17 +203,18 @@ firebase.initializeApp(config);
 firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
       // User is signed in.
-          
+
       firebase.database().ref("/users/"+user.uid).once("value",function(snap) {
-          let data = snap.val()
-          console.log(`Welcome ${data.fname} ${data.lname}`)
-          $("#nameDisplay").text(data.fname)      
-      })
-      
-      // Hide Sign Up/Login buttons
-      $("#loginWrapper").hide()
-      // Show user name message and Logout button
-      $("#logOut").show()
+        let data = snap.val()
+        console.log(`Welcome ${data.fname} ${data.lname}`)
+        $("#nameDisplay").text(data.fname)      
+    })
+    
+    // Hide Sign Up/Login buttons
+    $("#loginWrapper").hide()
+    // Show user name message and Logout button
+    $("#logOut").show()
+
     } else {
       // No user is signed in.
       $("#loginWrapper").show()
@@ -229,13 +223,13 @@ firebase.auth().onAuthStateChanged(function(user) {
 });
 
 // Function creates new user
-function newUser(email, password, fName, lName, zipCode) {
+function newUser(email, password) {
     firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
         // Handle Errors here.
         var errorCode = error.code;
         var errorMessage = error.message;
         // ...
-      }).then(function(ref) {
+    }).then(function(ref) {
         console.log("SIGNUP THEN:")
         console.log(ref.user)
 
