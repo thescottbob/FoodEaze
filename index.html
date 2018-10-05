@@ -28,7 +28,8 @@
         <!-- button that would take user to the Sign-Up modal -->
   
         <!-- <button id ="loginButton" style="width:auto;" id="sign-up">Sign Up</button> -->
-        <button class="loginButton" onclick="document.getElementById('sign-up-modal').style.display='block'" style="width:auto;">Sign Up</button>
+		<div id="loginWrapper">
+		<button class="loginButton" onclick="document.getElementById('sign-up-modal').style.display='block'" style="width:auto;">Sign Up</button>
   
         <div id="sign-up-modal" class="modal">
           <form class="modal-content animate" action="/action_page.php">
@@ -41,8 +42,8 @@
               <input type="text" placeholder="First Name" name="fname" id="signfname" required>
               <label for="lname"><b>Last Name</b></label>
               <input type="text" placeholder="Last Name" name="lname" id="signlname" required>
-              <label for="uname"><b>Create Username</b></label>
-              <input type="text" placeholder="Enter Username" name="uname" id="signuname" required>
+              <label for="uname"><b>Enter Email</b></label>
+              <input type="email" placeholder="Enter Email" name="uname" id="email" required>
   
               <label for="psw"><b>Create Password</b></label>
               <input type="password" placeholder="Enter Password" name="psw" id="signpassword" required>
@@ -69,8 +70,8 @@
             </div>
   
             <div class="container">
-              <label for="uname"><b>Username</b></label>
-              <input type="text" placeholder="Enter Username" name="uname" id="logusername" required>
+              <label for="email"><b>Email</b></label>
+              <input type="email" placeholder="Enter Email" name="email" id="logemail" required>
   
               <label for="psw"><b>Password</b></label>
               <input type="password" placeholder="Enter Password" name="psw" id="logpassword" required>
@@ -87,7 +88,8 @@
             </div>
           </form>
         </div>
-        
+		</div>
+		<div id="logOut"></div>
       </div>
   
     </div>

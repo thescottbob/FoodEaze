@@ -169,7 +169,7 @@ input[type=text], input[type=password] {
     background-color: #4CAF50;
     color: white;
     padding: 14px 20px;
-    margin: 0 15px;
+    margin: 0 13px;
     border-radius: 10px;
     border:none;
     cursor: pointer;
@@ -285,6 +285,18 @@ span.psw {
         font-size: 12px;
     }
 
+    .loginButton {
+        background-color: #4CAF50;
+        color: white;
+        padding: 8px 12px;
+        border-radius: 10px;
+        border:none;
+        cursor: pointer;
+        width: 30%;
+        font-size: 14px;
+        margin-left: 33px;
+    }
+
 }
     @media screen and (max-width: 650px) {
         
@@ -301,7 +313,7 @@ span.psw {
         
        
         
-        #loginButton {
+        .loginButton {
             background-color: #4CAF50;
             color: white;
             padding: 8px 12px;
