@@ -285,7 +285,7 @@ span.psw {
         font-size: 12px;
     }
 
-    #loginButton {
+    .loginButton {
         background-color: #4CAF50;
         color: white;
         padding: 8px 12px;
@@ -313,7 +313,7 @@ span.psw {
         
        
         
-        #loginButton {
+        .loginButton {
             background-color: #4CAF50;
             color: white;
             padding: 8px 12px;
