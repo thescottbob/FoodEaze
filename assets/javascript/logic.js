@@ -109,18 +109,10 @@ $("#foodSubmit").on("click", function (event) {
     for (let i = 0; i < restaurants.length; i++) {
       let res = restaurants[i];
 
-      // Create new table row
+      //Create new table row
       let newRow = $("<div>").addClass("row restaurantRow");
 
-      
-      newRow.append(
-        $("<div>")
-          .addClass("col menuItemName")
-          .text(res.menu_item_name)
-        //   .attr("href", website_url)
-      );
-
-      // Add restaurant name with hyperlink to source
+      // Add restaurant name with hyperlink to restaurant website
       newRow.append(
         $("<a>")
           .addClass("col restaurantName")
@@ -128,8 +120,33 @@ $("#foodSubmit").on("click", function (event) {
         //   .attr("href", website_url)
       );
 
+      // Add restaurant cuisine type
+      newRow.append(
+        $("<div>")
+          .addClass("col cuisineType")
+          .text(res.cuisine_type_primary)
+      );
+
+      // Add menu item name
+      newRow.append(
+        $("<div>")
+          .addClass("col menuItemName")
+          .text(res.menu_item_name)
+      );
+
+      // Add menu item description
+      newRow.append(
+        $("<div>")
+          .addClass("col menuItemDescription")
+          .text(res.menu_item_description)
+      );
+
+      var divider = $("<hr>").attr("color", "black").attr("thickness", "20px");
+
       $("#restaurantData").append(newRow);
-    }
+      $("#restaurantData").append(divider);
+
+    } 
   });
 })
 

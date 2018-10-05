@@ -402,5 +402,8 @@ li {
     border-radius: 12px;
     
 }
-
-
+.col {
+    font-weight: bolder;
+    font-size: 20px;
+    text-align: center;
+}
