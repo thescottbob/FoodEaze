@@ -400,6 +400,7 @@ li {
     font-size: 20px;
     font-family: 'Times New Roman', Times, serif;
     text-align: center;
+<<<<<<< HEAD
     margin:auto;
     
 }
@@ -419,4 +420,6 @@ li {
 
 #ourStory{
     color:white;
+=======
+>>>>>>> 4fdf8b5b3466d2221fc8f088edd64f91fcaa9a31
 }
