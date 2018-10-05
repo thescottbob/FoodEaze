@@ -210,31 +210,55 @@ firebase.initializeApp(config);
 firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
       // User is signed in.
+          
+      firebase.database().ref("/users/"+user.uid).once("value",function(snap) {
+          let data = snap.val()
+          console.log(`Welcome ${data.fname} ${data.lname}`)
+          $("#nameDisplay").text(data.fname)      
+      })
+      
+      // Hide Sign Up/Login buttons
+      $("#loginWrapper").hide()
+      // Show user name message and Logout button
+      $("#logOut").show()
     } else {
       // No user is signed in.
+      $("#loginWrapper").show()
+      $("#logOut").hide()
     }
 });
 
 // Function creates new user
-function newUser(email, password) {
+function newUser(email, password, fName, lName, zipCode) {
     firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
         // Handle Errors here.
         var errorCode = error.code;
         var errorMessage = error.message;
         // ...
+      }).then(function(ref) {
+        console.log("SIGNUP THEN:")
+        console.log(ref.user)
+
+        firebase.database().ref('/users/'+ref.user.uid).set({
+            // Placeholder values
+            'fname': fName,
+            'lname': lName,
+            'zipCode': zipCode
+        })
       });
 }
 
 // Function signs in existing user
 function signIn(email, password) {
-    // Force values for testing
-    email = "bob@exam.com"
-    password = "password"
 
-    firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+    firebase.auth().signInWithEmailAndPassword(email, password).then(function(ref) {
+        console.log("LOGIN: SUCCESS")
+        console.log(ref.user)
+    }, function(error) {
+        console.log("LOGIN: FAIL")
         console.log(error.code);
         console.log(error.message);
-     });
+    })
 }
 
 // Function signs out current user, if any
@@ -247,12 +271,12 @@ function signOut() {
      });
 }
 
-
+// Listener on sign-up submit button to create new user
 $("#signcreateUser").on("click", function() {
     event.preventDefault()
 
     // Get user info from form
-    let email = $("#signuname").val()
+    let email = $("#email").val()
     let password = $("#signpassword").val()
     let fName = $("#signfname").val()
     let lName = $("#signlname").val()
@@ -262,14 +286,16 @@ $("#signcreateUser").on("click", function() {
 
 
     // Add user to database
-    // newUser(email, password)
+    newUser(email, password, fName, lName, zipCode)
 })
 
 $("#logsubmitUser").on("click", function() {
     event.preventDefault()
 
-    let email = $("#logusername").val()
+    let email = $("#logemail").val()
     let password = $("#logpassword").val()
 
     signIn(email, password)
 })
+
+$("#logoutBtn").on("click", signOut)
