@@ -225,13 +225,14 @@ function signIn(email, password) {
     email = $("#logusername").val()
     password = $("#logpassword").val()
 
-    firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+    firebase.auth().signInWithEmailAndPassword(email, password).then(function(ref) {
+        console.log("LOGIN: SUCCESS")
+        console.log(ref.user)
+    }, function(error) {
+        console.log("LOGIN: FAIL")
         console.log(error.code);
         console.log(error.message);
-     }).then(function(ref) {
-        console.log("THEN:")
-        console.log(ref.user)
-     });
+    })
 }
 
 // Function signs out current user, if any
