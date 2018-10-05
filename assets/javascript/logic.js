@@ -224,12 +224,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 
 // Function creates new user
 function newUser(email, password, fName, lName, zipCode) {
-    firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
-        // Handle Errors here.
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        // ...
-    }).then(function(ref) {
+    firebase.auth().createUserWithEmailAndPassword(email, password).then(function(ref) {
         console.log("SIGNUP THEN:")
         console.log(ref.user)
 
@@ -239,7 +234,23 @@ function newUser(email, password, fName, lName, zipCode) {
             'lname': lName,
             'zipCode': zipCode
         })
-      });
+
+        // Clear sign-up form and hide it
+        $("#email").val("")
+        $("#signpassword").val("")
+        $("#signfname").val("")
+        $("#signlname").val("")
+        $("#signzipCode").val("")
+
+        $("#sign-up-modal").hide()
+    }, function(error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        console.log("SIGN-UP FAIL")
+        console.log(errorCode)
+        console.log(errorMessage)
+    });
 }
 
 // Function signs in existing user
@@ -248,6 +259,9 @@ function signIn(email, password) {
     firebase.auth().signInWithEmailAndPassword(email, password).then(function(ref) {
         console.log("LOGIN: SUCCESS")
         console.log(ref.user)
+
+        // Hide login modal
+        $("#login-modal").hide()
     }, function(error) {
         console.log("LOGIN: FAIL")
         console.log(error.code);
@@ -276,11 +290,39 @@ $("#signcreateUser").on("click", function() {
     let lName = $("#signlname").val()
     let zipCode = $("#signzipCode").val()
 
-    console.log(email, password, fName, lName, zipCode)
+    // Validate info
+    let valid = true
 
+    // First name field must be one characters or more
+    if (fName.length<1) {
+        valid = false;
+        console.log("FAIL: FIRST NAME MUST BE AT LEAST ONE CHARACTER LONG")
+    }
 
-    // Add user to database
-    newUser(email, password, fName, lName, zipCode)
+    // Last name field not required
+
+    // Password must be 6 characters or more
+    if (password.length<6) {
+        valid = false;
+        console.log("FAIL: PASSWORD MUST HAVE 6 OR MORE CHARACTERS")
+    }
+
+    // Postal code must be 5-digit US postal code
+    if (zipCode.length!==5) {
+        valid = false;
+        console.log("FAIL: ZIP CODE MUST HAVE EXACTLY 5 DIGITS")
+    } else if (isNaN(zipCode)) {
+        valid = false;
+        console.log("FAIL: ZIP CODES MAY CONSIST OF NUMBERS ONLY")
+    }
+
+    // Add user if valid
+    if (valid) {
+        // Add user to database
+        newUser(email, password, fName, lName, zipCode)
+    } else {
+        console.log("SIGN-UP FAILED")
+    }
 })
 
 $("#logsubmitUser").on("click", function() {
