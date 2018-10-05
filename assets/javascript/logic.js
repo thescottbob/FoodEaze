@@ -245,6 +245,14 @@ function newUser(email, password, fName, lName, zipCode) {
             'lname': lName,
             'zipCode': zipCode
         })
+
+        // Clear sign-up form
+        $("#email").val("")
+        $("#signpassword").val("")
+        $("#signfname").val("")
+        $("#signlname").val("")
+        $("#signzipCode").val("")
+
       });
 }
 
@@ -282,7 +290,7 @@ $("#signcreateUser").on("click", function() {
     let lName = $("#signlname").val()
     let zipCode = $("#signzipCode").val()
 
-    console.log(email, password, fName, lName, zipCode)
+    // Validate info
 
 
     // Add user to database
