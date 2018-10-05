@@ -223,7 +223,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 });
 
 // Function creates new user
-function newUser(email, password) {
+function newUser(email, password, fName, lName, zipCode) {
     firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
         // Handle Errors here.
         var errorCode = error.code;
