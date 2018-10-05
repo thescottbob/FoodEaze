@@ -224,12 +224,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 
 // Function creates new user
 function newUser(email, password, fName, lName, zipCode) {
-    firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
-        // Handle Errors here.
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        // ...
-    }).then(function(ref) {
+    firebase.auth().createUserWithEmailAndPassword(email, password).then(function(ref) {
         console.log("SIGNUP THEN:")
         console.log(ref.user)
 
@@ -248,7 +243,14 @@ function newUser(email, password, fName, lName, zipCode) {
         $("#signzipCode").val("")
 
         $("#sign-up-modal").hide()
-      });
+    }, function(error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        console.log("SIGN-UP FAIL")
+        console.log(errorCode)
+        console.log(errorMessage)
+    });
 }
 
 // Function signs in existing user
@@ -294,7 +296,7 @@ $("#signcreateUser").on("click", function() {
     // Password must be 6 characters or more
     if (password.length<6) {
         valid = false;
-        console.log("FAIL: PASSWORD TOO SHORT")
+        console.log("FAIL: PASSWORD MUST HAVE 6 OR MORE CHARACTERS")
     }
 
     if (valid) {
