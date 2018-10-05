@@ -263,6 +263,9 @@ function signIn(email, password) {
     firebase.auth().signInWithEmailAndPassword(email, password).then(function(ref) {
         console.log("LOGIN: SUCCESS")
         console.log(ref.user)
+
+        // Hide login modal
+        $("#login-modal").hide()
     }, function(error) {
         console.log("LOGIN: FAIL")
         console.log(error.code);
@@ -292,10 +295,18 @@ $("#signcreateUser").on("click", function() {
     let zipCode = $("#signzipCode").val()
 
     // Validate info
+    let valid = true
 
+    // Password must be 6 characters or more
+    if (password.length<6) {
+        valid = false;
+        console.log("FAIL: PASSWORD TOO SHORT")
+    }
 
-    // Add user to database
-    newUser(email, password, fName, lName, zipCode)
+    if (valid) {
+        // Add user to database
+        newUser(email, password, fName, lName, zipCode)
+    }
 })
 
 $("#logsubmitUser").on("click", function() {
