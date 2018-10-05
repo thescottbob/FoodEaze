@@ -118,9 +118,10 @@
 						<input type="checkbox"  name="peanuts" id="noNut">Peanut Free
 					</label>
 					<label class ="refinements">
-              <input type="checkbox"  name="noTreeNut" id="noTreeNut">Nut Free
-          </label> 
-          <label class="refinements">
+              			<input type="checkbox"  name="noTreeNut" id="noTreeNut">Nut Free
+					</label> 
+					  
+          			<label class="refinements">
 						<input type="checkbox"  name="alcohol" id="noAlcohol">Alcohol Free
 					</label> 
 					<label class ="refinements">
@@ -130,7 +131,8 @@
 						<input type="checkbox"  name="vegetarian" id="vegetarian">Vegetarian
 					</label>
 				</span>
-        <br><button type="submit" class="btn btn-primary" id="foodSubmit">Submit</button>
+		<br><br>
+		<button type="submit" class="btn btn-primary" id="foodSubmit">Submit</button>
       </div>
     </form>
    
@@ -145,7 +147,13 @@
         <div id="Recipes" class="tabcontent">
           <div class="innerCard">
             <br>
-            <h3>Recipes</h3>
+			<h3>Recipes</h3>
+			<hr>
+			<div class='row'>
+				<div class="col">Recipe Image</div>
+				<div class="col">Recipe Name</div>
+				<div class="col">Known Allergens</div>
+			</div>
             <p id="recipeData">
               <img class="foodPics1" src="assets/images/burger.png" alt="Burger">
               <br>
@@ -157,7 +165,8 @@
         <div id="Delivery" class="tabcontent">
           <div class="innerCard">
             <br>
-            <h3>Delivery</h3>
+			<h3>Delivery</h3>
+			<hr>
             <p id="deliveryData">
               <img class="foodPics1" src="assets/images/taco.png" alt="Taco">
               <br>
@@ -169,7 +178,14 @@
         <div id="Restaurant" class="tabcontent">
           <div class="innerCard">
             <br>
-            <h3>Restaurants</h3>
+			<h3>Restaurants</h3>
+			<hr>
+			<div class='row'>
+				<div class="col">Restaurant Name</div>
+				<div class="col">Cuisine Type</div>
+				<div class="col">Menu Item</div>
+				<div class="col">Description</div>
+			</div>
             <p id="restaurantData">
               <img class="foodPics1" src="assets/images/donut.png" alt="Donut">
               <br>
@@ -180,11 +196,13 @@
       </div>
 	</div>
 
-	<div id="iconCred">Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/"
+	<div class="creditWrapper">
+	<div>Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/"
 		 title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0"
 		 target="_blank">CC 3.0 BY</a></div>
-		 <div id="apiCred">Menus provided by <a href="http://www.openmenu.com" title="openMenu">OpenMenu</a> </div>
+		 <div>Menus provided by <a href="http://www.openmenu.com" title="openMenu">OpenMenu</a> </div>
 	<div id="edamam-badge" data-color="black"></div>
+	</div>
 
 	<!-- Optional JavaScript -->
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
