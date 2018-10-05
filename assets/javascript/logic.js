@@ -215,9 +215,10 @@ firebase.auth().onAuthStateChanged(function(user) {
       // Hide Sign Up/Login buttons
       $("#loginWrapper").hide()
       // Show user name message and Logout button
-      
+
     } else {
       // No user is signed in.
+      $("#loginWrapper").show()
     }
 });
 
