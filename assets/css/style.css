@@ -368,7 +368,7 @@ li {
     padding:20px;
 }
 .recipeName {
-    font-size: 35px;
+    font-size: 20px;
     font-family: 'Times New Roman', Times, serif;
     text-align: center;
     margin:auto;
@@ -403,7 +403,7 @@ li {
 .restaurantRow {
     border: solid black 2px;
     width: 90%;
-    margin:3%;
+    margin:4%;
     border-radius: 12px;
     
 }
@@ -450,3 +450,17 @@ li {
     margin-right: 5px;
 }
 
+.restRow{
+    margin: 4%;
+}
+
+.submitButton {
+    margin-left: 15%;
+    color: #fff;
+    width: 66%;
+    height: 55px;
+    background-color: #007bff;
+    border-color: #007bff;
+    text-align: center;
+    font-size: 25px;
+}
