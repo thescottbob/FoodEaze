@@ -1,39 +1,43 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
-	<title>Our Story</title>
-	<link rel="icon" type="image/png" href="assets/images/apple.png">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+  <title>Our Story</title>
+  <link rel="icon" type="image/png" href="assets/images/apple.png">
   <link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
   <script src="https://developer.edamam.com/attribution/badge.js"></script>
-  </head>
-  <body>
-	<!-- Label, top right, for the app -->
-  
-  
-  
+</head>
+
+<body>
+  <!-- Label, top right, for the app -->
+
+
+
   <div class="navbar">
-      <p id="lilTitle">FOODEAZE</p>
-      <!-- added a button that should take the user to the Our-Story page  -->
-          
-      <div id="buttonWrapper">
-          <div id ="ourStory">
-              <a href="index.html">
-                <button class ="loginButton" style="width:auto;" >Home</button>
-              </a>
-             </div>
-        <!-- button that would take user to the Sign-Up modal -->
-  
-        <!-- <button id ="loginButton" style="width:auto;" id="sign-up">Sign Up</button> -->
-		<div id="loginWrapper">
-		<button class="loginButton" onclick="document.getElementById('sign-up-modal').style.display='block'" style="width:auto;">Sign Up</button>
-  
+    <p id="lilTitle">FOODEAZE</p>
+    <!-- added a button that should take the user to the Our-Story page  -->
+
+    <div id="buttonWrapper">
+      <div id="ourStory">
+        <a href="index.html">
+          <button class="loginButton" style="width:auto;">Home</button>
+        </a>
+      </div>
+      <!-- button that would take user to the Sign-Up modal -->
+
+      <!-- <button id ="loginButton" style="width:auto;" id="sign-up">Sign Up</button> -->
+      <div id="loginWrapper">
+        <button class="loginButton" onclick="document.getElementById('sign-up-modal').style.display='block'" style="width:auto;">Sign
+          Up</button>
+
         <div id="sign-up-modal" class="modal">
           <form class="modal-content animate" action="/action_page.php">
             <div class="imgcontainer">
@@ -46,139 +50,144 @@
               <label for="lname"><b>Last Name</b></label>
               <input type="text" placeholder="Last Name" name="lname" id="signlname" required>
               <label for="uname"><b>Enter Email</b></label>
-              <input type="email" placeholder="Enter Email" name="email" id="email" required>
-  
+              <input type="email" placeholder="Enter Email" name="uname" id="email" required>
+
               <label for="psw"><b>Create Password</b></label>
-              <input type="password" placeholder="Enter Password" name="psw" id="signpassword" required>
+              <input type="password" placeholder="Enter Password" name="psw" id="signpassword" required><br>
               <label for="zipcode"><b>Zip Code</b></label>
-              <input for="zipcode" placeholder="00000" name="zcode" id="signzipCode" required>
-              <br><br>
-  
+              <input type="text" for="zipcode" placeholder="00000" name="zcode" id="signzipCode" required>
+              <br>
+
               <button class="loginButton" type="submit" id="signcreateUser">Sign-Up</button>
               <label>
                 <input type="checkbox" checked="checked" name="remember"> Remember me
               </label>
             </div>
-          </form>  
+          </form>
         </div>
-  
+
         <!-- button for returning users to login to their account -->
         <button class="loginButton" onclick="document.getElementById('login-modal').style.display='block'" style="width:auto;">Login</button>
-  
+
         <div id="login-modal" class="modal">
-  
+
           <form class="modal-content animate" action="/action_page.php">
             <div class="imgcontainer">
               <p id="lilTitle2">FOODEAZE</p>
             </div>
-  
+
             <div class="container">
-              <label for="email"><b>Email</b></label><br>
-              <input type="email" placeholder="Enter Email" name="email" id="logemail" required><br>
-  
+              <label for="email"><b>Email</b></label>
+              <input type="email" placeholder="Enter Email" name="email" id="logemail" required>
+
               <label for="psw"><b>Password</b></label>
               <input type="password" placeholder="Enter Password" name="psw" id="logpassword" required>
-  
+
               <button class="loginButton" type="submit" id="logsubmitUser">Login</button>
               <label>
                 <input type="checkbox" checked="checked" name="remember" id="rememberMe"> Remember me
               </label>
             </div>
-  
+
             <div class="container" style="background-color:#f1f1f1">
               <button type="button" onclick="document.getElementById('login-modal').style.display='none'" class="cancelbtn">Cancel</button>
               <span class="psw"><a href="http:www.google.com"> Forgot password? </a></span>
             </div>
           </form>
         </div>
-		</div>
-		<div id="logOut"></div>
       </div>
-  
+      <div id="logOut"></div>
+    </div>
+
+  </div>
+
+
+
+
+  <div class="wrapper">
+    <br>
+    <div id="header">
+      <!-- Label at the top of page, showing APPs icon -->
+      <span>
+        <img class="foodPics1" src="assets/images/fries.png" alt="Fries">
+        <img class="foodPics2" src="assets/images/pizza.png" alt="Pizza">
+        <img class="foodPics1" src="assets/images/cookie.png" alt="Cookie">
+        <img class="foodPics2" src="assets/images/noodles.png" alt="Noodles">
+        <p id="title">FOODEAZE</p>
+        <p id="title2">Our Story</p>
+
+        <br>
+        <!-- card for Kayla's story -->
+        <div class="card-group">
+          <div class="card">
+            <img class="img-fluid img-thumbnail" id="ourPhotos" src="assets/images/Kayla.jpg" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Kayla Williams</h5>
+              <p class="card-text">
+                <li>Food Preference: Thai, Greek, & Mexican</li>
+                <li>No Allergies but an agressive aversion to Shrimp </li>
+                <li>Enjoys cooking, and Dining In! Both allow for full appreciation of food!</li>
+              </p>
+
+            </div>
+          </div>
+          <!-- card for Michaels's story -->
+          <div class="card">
+            <img class="img-fluid img-thumbnail " id="ourPhotos" src="assets/images/star.png" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Michael Pennella</h5>
+              <p class="card-text">
+                <li>Food Preference: Mexican & Japanese</li>
+                <li>No Allergies but could do without any asparagus...ever.</li>
+                <li>Enjoys cooking, but eating out is just too convenient!</li>
+              </p>
+            </div>
+          </div>
+          <!-- card for Nick's story -->
+          <div class="card">
+            <img class="img-fluid img-thumbnail" id="ourPhotos" src="assets/images/Nick.png" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Nick Corrigan</h5>
+              <p class="card-text">
+                <li>Food Preference: Mexican, Thai & Italian</li>
+                <li>No Allergies </li>
+                <li>Enjoys cooking, getting TakeAway and Dining in! Being a foodie is a full time job!</li>
+              </p>
+            </div>
+          </div>
+          <!-- card for Scotts's story -->
+          <div class="card">
+            <img class="img-fluid img-thumbnail" id="ourPhotos" src="assets/images/scott.JPG" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Scott McMains</h5>
+              <p class="card-text">
+                <li>Food Preference: Mexican & Chinese</li>
+                <li>No Allergies -Chooses a vegetarian lifestyle</li>
+                <li>Cooking is Lyfe!</li>
+              </p>
+            </div>
+          </div>
+
+        </div>
+    </div>
+
+    <div class="creditWrapper">
+      <div>Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/"
+          title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/"
+          title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+      <div>Menus provided by <a href="http://www.openmenu.com" title="openMenu">OpenMenu</a> </div>
+      <div id="edamam-badge" data-color="black"></div>
     </div>
 
 
-
-  
-
-    <div class="wrapper">
-	<br>
-			<div id="header">
-        <!-- Label at the top of page, showing APPs icon -->
-	<span>
-				<img class="foodPics1" src="assets/images/fries.png" alt="Fries">
-				<img class="foodPics2" src="assets/images/pizza.png" alt="Pizza">
-				<img class="foodPics1" src="assets/images/cookie.png" alt="Cookie">
-				<img class="foodPics2" src="assets/images/noodles.png" alt="Noodles">
-                <p id="title">FOODEAZE</p>
-                <p id="title2">Our Story</p>
-            
-  <br>
-  <!-- card for Kayla's story -->
-    <div class="card-group">
-            <div class="card">
-              <img class="img-fluid img-thumbnail"  id="ourPhotos" src="assets/images/Kayla.jpg" alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title">Kayla Williams</h5>
-                <p class="card-text">
-                        <li>Food Preference: Thai, Greek, & Mexican</li>
-                        <li>No Allergies but an agressive aversion to Shrimp </li>
-                        <li>Enjoys cooking, and Dining In! Both allow for full appreciation of food!</li>
-                </p>
-                
-              </div>
-            </div>
-            <!-- card for Michaels's story -->
-            <div class="card">
-                    <img class="img-fluid img-thumbnail " id="ourPhotos"  src=".../100px180/" alt="Card image cap">
-                    <div class="card-body">
-                      <h5 class="card-title">Michael Pennella</h5>
-                      <p class="card-text"> 
-                          <li>Food Preference: Mexican & Japanese</li>
-                          <li>No Allergies but could do without any asparagus...ever.</li>
-                          <li>Enjoys cooking, but eating out is just too convenient!</li>
-                      </p>
-                    </div>
-                  </div>
-            <!-- card for Nick's story -->
-            <div class="card">
-              <img class="img-fluid img-thumbnail" id="ourPhotos" src="assets/images/Nick.png" alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title">Nick Corrigan</h5>
-                <p class="card-text">
-                        <li>Food Preference: Mexican, Thai & Italian</li>
-                        <li>No Allergies </li>
-                        <li>Enjoys cooking, getting TakeAway and Dining in! Being a foodie is a full time job!</li>
-                </p>
-              </div>
-            </div>
-          <!-- card for Scotts's story -->
-            <div class="card">
-              <img class="img-fluid img-thumbnail" id="ourPhotos" src="assets/images/scott.JPG" alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title">Scott McMains</h5>
-                <p class="card-text">
-                        <li>Food Preference: Mexican & Chinese</li>
-                        <li>No Allergies -Chooses a vegetarian lifestyle</li>
-                        <li>Cooking is Lyfe!</li>
-                        </p>
-              </div>
-            </div>
-          
-                </div>      
-          </div>
-    
-  <div class="creditWrapper">
-   <div>Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
-   <div>Menus provided by <a href="http://www.openmenu.com" title="openMenu">OpenMenu</a> </div>
-   <div id="edamam-badge" data-color="black"></div>
-	</div>
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-	<script src="https://www.gstatic.com/firebasejs/5.5.1/firebase.js"></script> 
-	<script src="assets/javascript/logic.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+      crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+      crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+      crossorigin="anonymous"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.1/firebase.js"></script>
+    <script src="assets/javascript/logic.js"></script>
 </body>
+
 </html>
