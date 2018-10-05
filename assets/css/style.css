@@ -89,6 +89,11 @@ h3{
     letter-spacing: 50px;
 }
 
+.card-group {
+    letter-spacing: 1px;
+    text-align: left;
+}
+
 #title{
     font-size: 65px;
     font-family: 'Fredoka One', cursive;
@@ -184,13 +189,6 @@ button:hover {
     border-radius: 12px;
 }
 
-/* Center the image and position the close button */
-.imgcontainer {
-    text-align: center;
-    margin: 24px 0 12px 0;
-    position: relative;
-}
-
 
 
 .container {
@@ -242,6 +240,12 @@ span.psw {
     cursor: pointer;
 }
 
+.creditWrapper {
+    font-size: 13px;
+    text-align: center;
+}
+
+
 /* Add Zoom Animation */
 .animate {
     -webkit-animation: animatezoom 0.6s;
@@ -280,7 +284,34 @@ span.psw {
     .tablink{
         font-size: 12px;
     }
-    
+
+
+    @media screen and (max-width: 650px) {
+        
+
+        #lilTitle {
+            display:none;
+        }
+
+        #lilTitle2 {
+            margin:10px;
+            font-size:30px;
+            letter-spacing:9px;
+        }
+        
+       
+        
+        #loginButton {
+            background-color: #4CAF50;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 10px;
+            border:none;
+            cursor: pointer;
+            width: 30%;
+            font-size: 14px;
+            margin-left: 33px;
+        }
    
 }
 
@@ -296,7 +327,7 @@ span.psw {
 
 /* added CSS for the Our-Story page */
 .card-title {
-    font-size: 35px;
+    font-size: 33px;
 }
 li {
     font-size:18px;
@@ -338,8 +369,26 @@ li {
     border-radius: 12px;
     
 }
+/* style for returned data from openMenu API*/
 
-
-.checkbox{
-    margin-left: 10px;
+.menuItemName {
+    font-size: 35px;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+    margin:auto;
 }
+.restaurantName {
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+    margin:auto;
+}
+.restaurantRow {
+    border: solid black 2px;
+    width: 90%;
+    margin:3%;
+    border-radius: 12px;
+    
+}
+
+
