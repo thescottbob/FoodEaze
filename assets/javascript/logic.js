@@ -293,5 +293,3 @@ $("#logsubmitUser").on("click", function() {
 })
 
 $("#logoutBtn").on("click", signOut)
-
-github = 0;
