@@ -22,9 +22,11 @@
       <!-- added a button that should take the user to the Our-Story page  -->
           
       <div id="buttonWrapper">
-        <a href="our-story.html">
-          <button class ="loginButton" style="width:auto;" >Our Story</button>
-        </a>
+		<div id ="ourStory">
+			<a href="our-story.html">
+				<button class ="loginButton" style="width:auto;" >Our Story</button>
+			</a>
+	 	</div>
         <!-- button that would take user to the Sign-Up modal -->
   
         <!-- <button id ="loginButton" style="width:auto;" id="sign-up">Sign Up</button> -->
@@ -106,8 +108,8 @@
 				<img class="foodPics2" src="assets/images/noodles.png" alt="Noodles">
 				<p id="title">FOODEAZE</p>
 				<!--<img class="foodPics2" src="assets/images/fried-chicken.png" alt="Fried-Chicken">-->
-      </span>
-    </div>	
+      		</span>
+    	</div>	
 	  <br>
     <form>
       <div class="form-group">
@@ -142,7 +144,7 @@
     
     <div class="card-body">
         <button class="tablink" onclick="openPage('Recipes', this, '#f25f5c')" id="defaultOpen">Recipes</button>
-        <button class="tablink" onclick="openPage('Delivery', this, '#70c1b3')">Delivery</button>
+        <!-- <button class="tablink" onclick="openPage('Delivery', this, '#70c1b3')">Delivery</button> -->
         <button class="tablink" onclick="openPage('Restaurant', this, 'lightsalmon')">Restaurants</button>
         
         
@@ -155,7 +157,7 @@
 				<div class="col">Recipe Image</div>
 				<div class="col">Recipe Name</div>
 				<div class="col">Known Allergens</div>
-			</div>
+			</div><br>
             <p id="recipeData">
               <img class="foodPics1" src="assets/images/burger.png" alt="Burger">
               <br>
@@ -164,7 +166,7 @@
           </div>
         </div>
             
-        <div id="Delivery" class="tabcontent">
+        <!-- <div id="Delivery" class="tabcontent">
           <div class="innerCard">
             <br>
 			<h3>Delivery</h3>
@@ -175,7 +177,7 @@
               Let us help locate ways to have your favorite foods delivered right to your door
             </p> 
           </div>
-        </div>
+        </div> -->
             
         <div id="Restaurant" class="tabcontent">
           <div class="innerCard">
@@ -187,7 +189,7 @@
 				<div class="col">Cuisine Type</div>
 				<div class="col">Menu Item</div>
 				<div class="col">Description</div>
-			</div>
+			</div><br>
             <p id="restaurantData">
               <img class="foodPics1" src="assets/images/donut.png" alt="Donut">
               <br>
