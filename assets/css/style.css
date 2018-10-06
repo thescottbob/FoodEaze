@@ -270,10 +270,7 @@ span.psw {
     margin: 15px;
 }
 
-#iconCred {
-    font-size: 13px;
-    text-align: center;
-}
+
 
 /* added CSS for the Our-Story page */
 .card-title {
@@ -465,6 +462,11 @@ li {
 
     #header{
         letter-spacing: 15px;
+    }
+    
+    .creditWrapper {
+        font-size: 9px;
+        text-align: center;
     }
 
 }
