@@ -4,7 +4,7 @@ Can’t quite decide whether cooking or eating out sounds more appealing for the
 
 FoodEaze provides the bridge for the gap of the two. Users can search for a food type or specific meal and find both highly rated recipes and restaurants, tailored to their personal preferences and choices!
 
-![FoodEaze_Icon](assets/images/FoodEazeLabel)
+![FoodEaze_Icon](./assets/images/screen-shot.png)
 
 # This app required
 -the use of two APIs
