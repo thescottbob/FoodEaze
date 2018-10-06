@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-# Project-1
-Project 1
-Nicks Branch!
-=======
 # FoodEaze
 
 Can’t quite decide whether cooking or eating out sounds more appealing for the evening?? And even if that choice is simple, personal choices can make it complicated. Vegan, Nut-Free, Alcohol-Free, etc. 
@@ -37,4 +32,3 @@ Edamam
  —This is where it all starts by providing the results customers need for locating restaurants, menus and menu items. Search is unlike other APIs as we use our proprietary algorithms to generate a feed of interesting results. Returns the details of a restaurant from location to environment through the full menu. Returns restaurants in a specific location which can be limited by a restaurant name. Returns ingredients and nutrients. Easily build detailed nutrient reports and nutrition labels.
  
  For more information on the site creators, click on the "Our Story" tab to read how each of the creators are using FoodEaze.
->>>>>>> 1ec1d675028668d39afdf3d4a6b3af82a9a44687
