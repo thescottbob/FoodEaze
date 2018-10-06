@@ -17,11 +17,25 @@ let healthRestrictions = [];
 // Make API calls when food search form is submitted
 $("#foodSubmit").on("click", function(event) {
   event.preventDefault();
+
+    // Do not submit if no logged-in user
+    if (userData==undefined) {
+        console.log("ERROR: NO USER SIGNED IN")
+        return;
+    }
+
+    // Get info from food form
+    food = $("#exampleFoodInput").val();
+
+    // Do not submit if no text entered
+    if (food.length<1) {
+        console.log("ERROR: MUST ENTER FOOD TO SEARCH")
+        return;
+    }
+
   $(".col").show();
 
-  // Get info from food form
-  food = $("#exampleFoodInput").val();
-
+  
   if ($("#noNut").is(":checked")) {
     healthRestrictions.push("peanut-free");
   }
