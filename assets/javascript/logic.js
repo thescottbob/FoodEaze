@@ -210,7 +210,7 @@ firebase.auth().onAuthStateChanged(function(user) {
       firebase.database().ref("/users/"+user.uid).once("value",function(snap) {
         userData = snap.val()
         console.log(`Welcome ${userData.fname} ${userData.lname}`)
-        $("#nameDisplay").text(userData.fname)      
+        $("#nameDisplay").text(`Welcome ${userData.fname}!`)      
     })
     
     // Hide Sign Up/Login buttons
