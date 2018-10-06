@@ -110,11 +110,11 @@ $("#foodSubmit").on("click", function(event) {
     }
   });
 
-  // Basic OpenMenu query
-  // var postalCode = $("#zipCode").val();
-  var postalCode = 98105;
-  let openMenuURL = `https://openmenu.com/api/v2/search.php?key=${openMenuApiKey}&s=${food}&mi=1&postal_code=${postalCode}&country=US`;
-
+    // Basic OpenMenu query
+    var postalCode = userData.zipCode;
+    console.log(userData.zipCode)
+    let openMenuURL = `https://openmenu.com/api/v2/search.php?key=${openMenuApiKey}&s=${food}&mi=1&postal_code=${postalCode}&country=US`;
+  
   // OpenMenu API call
   $.ajax(openMenuURL, {
     method: "GET"
@@ -206,13 +206,16 @@ function openPage(pageName, elmnt, color) {
   elmnt.style.backgroundColor = color;
 }
 // Get the element with id="defaultOpen" and click on it
-document.getElementById("defaultOpen").click();
+$("#defaultOpen").click();
 
 /***********************************************
  *
  * User authentication
  *
  **********************************************/
+
+// Variable to store user data
+var userData;
 
 // Initialize Firebase
 var config = {
@@ -230,15 +233,12 @@ firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     // User is signed in.
 
-    firebase
-      .database()
-      .ref("/users/" + user.uid)
-      .once("value", function(snap) {
-        let data = snap.val();
-        console.log(`Welcome ${data.fname} ${data.lname}`);
-        $("#nameDisplay").text(data.fname);
-      });
-
+      firebase.database().ref("/users/"+user.uid).once("value",function(snap) {
+        userData = snap.val()
+        console.log(`Welcome ${userData.fname} ${userData.lname}`)
+        $("#nameDisplay").text(`Welcome ${userData.fname}!`)      
+    })
+    
     // Hide Sign Up/Login buttons
     $("#loginWrapper").hide();
     // Show user name message and Logout button
@@ -252,43 +252,46 @@ firebase.auth().onAuthStateChanged(function(user) {
 
 // Function creates new user
 function newUser(email, password, fName, lName, zipCode) {
-  firebase
-    .auth()
-    .createUserWithEmailAndPassword(email, password)
-    .catch(function(error) {
-      // Handle Errors here.
-      var errorCode = error.code;
-      var errorMessage = error.message;
-      // ...
-    })
-    .then(function(ref) {
-      console.log("SIGNUP THEN:");
-      console.log(ref.user);
+    firebase.auth().createUserWithEmailAndPassword(email, password).then(function(ref) {
+        console.log("SIGNUP THEN:")
+        console.log(ref.user)
 
-      firebase
-        .database()
-        .ref("/users/" + ref.user.uid)
-        .set({
-          // Placeholder values
-          fname: fName,
-          lname: lName,
-          zipCode: zipCode
-        });
+        firebase.database().ref('/users/'+ref.user.uid).set({
+            // Placeholder values
+            'fname': fName,
+            'lname': lName,
+            'zipCode': zipCode
+        })
+
+        // Clear sign-up form and hide it
+        $("#email").val("")
+        $("#signpassword").val("")
+        $("#signfname").val("")
+        $("#signlname").val("")
+        $("#signzipCode").val("")
+
+        $("#sign-up-modal").hide()
+    }, function(error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        console.log("SIGN-UP FAIL")
+        console.log(errorCode)
+        console.log(errorMessage)
     });
 }
 
 // Function signs in existing user
 function signIn(email, password) {
-  firebase
-    .auth()
-    .signInWithEmailAndPassword(email, password)
-    .then(
-      function(ref) {
-        console.log("LOGIN: SUCCESS");
-        console.log(ref.user);
-      },
-      function(error) {
-        console.log("LOGIN: FAIL");
+
+    firebase.auth().signInWithEmailAndPassword(email, password).then(function(ref) {
+        console.log("LOGIN: SUCCESS")
+        console.log(ref.user)
+
+        // Hide login modal
+        $("#login-modal").hide()
+    }, function(error) {
+        console.log("LOGIN: FAIL")
         console.log(error.code);
         console.log(error.message);
       }
@@ -297,14 +300,12 @@ function signIn(email, password) {
 
 // Function signs out current user, if any
 function signOut() {
-  firebase
-    .auth()
-    .signOut()
-    .then(
-      function() {
-        console.log("Logged out!");
-      },
-      function(error) {
+    firebase.auth().signOut().then(function() {
+        // Delete user data
+        userData = undefined;
+
+        console.log("Logged out!")
+     }, function(error) {
         console.log(error.code);
         console.log(error.message);
       }
@@ -322,11 +323,40 @@ $("#signcreateUser").on("click", function() {
   let lName = $("#signlname").val();
   let zipCode = $("#signzipCode").val();
 
-  console.log(email, password, fName, lName, zipCode);
+    // Validate info
+    let valid = true
 
-  // Add user to database
-  newUser(email, password, fName, lName, zipCode);
-});
+    // First name field must be one characters or more
+    if (fName.length<1) {
+        valid = false;
+        console.log("FAIL: FIRST NAME MUST BE AT LEAST ONE CHARACTER LONG")
+    }
+
+    // Last name field not required
+
+    // Password must be 6 characters or more
+    if (password.length<6) {
+        valid = false;
+        console.log("FAIL: PASSWORD MUST HAVE 6 OR MORE CHARACTERS")
+    }
+
+    // Postal code must be 5-digit US postal code
+    if (zipCode.length!==5) {
+        valid = false;
+        console.log("FAIL: ZIP CODE MUST HAVE EXACTLY 5 DIGITS")
+    } else if (isNaN(zipCode)) {
+        valid = false;
+        console.log("FAIL: ZIP CODES MAY CONSIST OF NUMBERS ONLY")
+    }
+
+    // Add user if valid
+    if (valid) {
+        // Add user to database
+        newUser(email, password, fName, lName, zipCode)
+    } else {
+        console.log("SIGN-UP FAILED")
+    }
+})
 
 $("#logsubmitUser").on("click", function() {
   event.preventDefault();
