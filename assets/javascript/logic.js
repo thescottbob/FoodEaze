@@ -1,7 +1,7 @@
 // Hide the table headers for our API results on page load. They will be revealed once the Submut button is pressed.
 window.onload = function() {
-    $(".col").hide();
-  };
+  $(".col").hide();
+};
 
 // Valid Diet filters (Edamam):           [balanced, high-protein, low-fat, low-carb]
 // Valid Health/Allergy filters (Edamam): [vegan, vegetarian, sugar-conscious, peanut-free, tree-nut-free, alcohol-free]
@@ -15,87 +15,100 @@ let dietRestrictions = [];
 let healthRestrictions = [];
 
 // Make API calls when food search form is submitted
-$("#foodSubmit").on("click", function (event) {
-    event.preventDefault();
-    $(".col").show();
+$("#foodSubmit").on("click", function(event) {
+  event.preventDefault();
+  $(".col").show();
 
-    // Get info from food form
-    food = $("#exampleFoodInput").val()
+  // Get info from food form
+  food = $("#exampleFoodInput").val();
 
-    if ( $("#noNut").is(":checked") ) {
-        healthRestrictions.push("peanut-free")
+  if ($("#noNut").is(":checked")) {
+    healthRestrictions.push("peanut-free");
+  }
+  if ($("#noTreeNut").is(":checked")) {
+    healthRestrictions.push("tree-nut-free");
+  }
+  if ($("#noAlcohol").is(":checked")) {
+    healthRestrictions.push("alcohol-free");
+  }
+  if ($("#vegan").is(":checked")) {
+    healthRestrictions.push("vegan");
+  }
+  if ($("#vegetarian").is(":checked")) {
+    healthRestrictions.push("vegetarian");
+  }
+
+  // Basic query
+  let edamURL = `https://api.edamam.com/search?app_id=${edamAppID}&app_key=${edamApiKey}&q=${food}`;
+  // Add additional flags as necessary
+  if (healthRestrictions.length > 0) {
+    if (healthRestrictions.includes("peanut-free")) {
+      edamURL += "&health=" + "peanut-free";
     }
-    if ( $("#noTreeNut").is(":checked") ) {
-        healthRestrictions.push("tree-nut-free")
+    if (healthRestrictions.includes("tree-nut-free")) {
+      edamURL += "&health=" + "tree-nut-free";
     }
-    if ( $("#noAlcohol").is(":checked") ) {
-        healthRestrictions.push("alcohol-free")
+    if (healthRestrictions.includes("alcohol-free")) {
+      edamURL += "&health=" + "alcohol-free";
     }
-    if ( $("#vegan").is(":checked") ) {
-        healthRestrictions.push("vegan")
+    if (healthRestrictions.includes("vegan")) {
+      edamURL += "&health=" + "vegan";
     }
-    if ( $("#vegetarian").is(":checked") ) {
-        healthRestrictions.push("vegetarian")
+    if (healthRestrictions.includes("vegetarian")) {
+      edamURL += "&health=" + "vegetarian";
     }
-    
-    // Basic query
-    let edamURL = `https://api.edamam.com/search?app_id=${edamAppID}&app_key=${edamApiKey}&q=${food}`
-    // Add additional flags as necessary
-    if (healthRestrictions.length>0) {
-        if (healthRestrictions.includes("peanut-free")){
-            edamURL += "&health="+"peanut-free"
-        }
-        if (healthRestrictions.includes("tree-nut-free")){
-            edamURL += "&health="+"tree-nut-free"
-        }
-        if (healthRestrictions.includes("alcohol-free")){
-            edamURL += "&health="+"alcohol-free"
-        } 
-        if (healthRestrictions.includes("vegan")){
-            edamURL += "&health="+"vegan"
-        }
-        if (healthRestrictions.includes("vegetarian")){
-            edamURL += "&health="+"vegetarian"
-        }
+  }
+
+  // Edamam API call
+  $.ajax(edamURL, {
+    method: "GET"
+  }).then(function(stuff) {
+    recipes = stuff.hits;
+    console.log(recipes);
+
+    // Push recipe info to Recipes tab
+    $("#recipeData").empty();
+
+    for (let i = 0; i < recipes.length; i++) {
+      let r = recipes[i].recipe;
+      console.log("-----------------------------");
+      console.log(r.label);
+      console.log(r.url);
+      console.log(r.ingredients);
+      console.log(r.healthLabels);
+      // $("body").append( $("<img>").attr("src",r.image) )
+      console.log("-----------------------------");
+
+      // Create new table row
+      let newRow = $("<div>").addClass("row recipeRow");
+
+      // Add recipe image
+      newRow.append(
+        $("<img>")
+          .addClass("col recipeImg")
+          .attr({
+            src: r.image,
+            alt: r.label
+          })
+      );
+      // Add recipe name with hyperlink to source
+      newRow.append(
+        $("<a>")
+          .addClass("col recipeName")
+          .text(r.label)
+          .attr("href", r.url)
+      );
+      // Add health/diet labels
+      let healthDesc = r.healthLabels.join(", ");
+      newRow.append(
+        $("<div>")
+          .addClass("col recipeHealthLabel")
+          .text(healthDesc)
+      );
+
+      $("#recipeData").append(newRow);
     }
-
-    // Edamam API call
-    $.ajax(edamURL, {
-        method: "GET"
-    }).then(function(stuff) {
-        recipes = stuff.hits
-        console.log(recipes)
-
-        // Push recipe info to Recipes tab
-        $("#recipeData").empty()
-        
-        for (let i=0; i<recipes.length; i++) {
-            let r = recipes[i].recipe
-            console.log("-----------------------------")
-            console.log(r.label)
-            console.log(r.url)
-            console.log(r.ingredients)
-            console.log(r.healthLabels)
-            // $("body").append( $("<img>").attr("src",r.image) )
-            console.log("-----------------------------")
-
-            // Create new table row
-            let newRow = $("<div>").addClass("row recipeRow")
-
-            // Add recipe image
-            newRow.append($("<img>").addClass("col recipeImg").attr({
-                src: r.image,
-                alt: r.label
-            }))
-            // Add recipe name with hyperlink to source
-            newRow.append($("<a>").addClass("col recipeName").text(r.label).attr("href", r.url))
-            // Add health/diet labels
-            let healthDesc = r.healthLabels.join(", ")
-            newRow.append($("<div>").addClass("col recipeHealthLabel").text(healthDesc))
-
-            $("#recipeData").append(newRow)
-        }
-    })
+  });
 
     // Basic OpenMenu query
     var postalCode = userData.zipCode;
@@ -114,12 +127,22 @@ $("#foodSubmit").on("click", function (event) {
 
     for (let i = 0; i < restaurants.length; i++) {
       let res = restaurants[i];
+      let zipCode = $("#signzipCode").val();
 
       //Create new table row
       let newRow = $("<div>").addClass("row restaurantRow");
 
+      let restaurantSearch = "https://www.google.com/" + res.restaurant_name;
+
       // Add restaurant name with hyperlink to restaurant website
-      newRow.append($("<a>").addClass("col restaurantName").text(res.restaurant_name));
+      newRow.append(
+        $("<div>")
+          .addClass("col restaurantName")
+        //   .append(
+        //     $("<a>")
+        //         .attr("href", restaurantSearch)
+                .text(res.restaurant_name)
+      );
 
       // Add restaurant cuisine type
       newRow.append(
@@ -135,57 +158,60 @@ $("#foodSubmit").on("click", function (event) {
           .text(res.menu_item_name)
       );
 
-      // Add restaurant address
+    let mapSearch ="https://www.google.com/maps/place/" + res.address_1 + " " + res.city_town + " " + res.state_province + " " + zipCode;
+
+      // Add restaurant address and make it into a hyperlink
       newRow.append(
         $("<div>")
           .addClass("col restaurantAddress")
-          .text(res.address_1)
+          .append(
+            $("<a>")
+              .attr("href", mapSearch)
+              .text(res.address_1 + ", " + res.city_town + ", " + res.state_province + " " + zipCode)
+          )
       );
 
       $("#restaurantData").append(newRow);
-    } 
+    }
   });
-})
+});
 
 /************************************
  * Vanilla javascipt for login modal
  * ***********************************/
-var logInModal = document.getElementById('login-modal');
-var signUpModal = document.getElementById('sign-up-modal');
+var logInModal = document.getElementById("login-modal");
+var signUpModal = document.getElementById("sign-up-modal");
 
 // When the user clicks anywhere outside of the logInModal or signUpModal, close it
 window.onclick = function(event) {
-    if (event.target == logInModal) {
-        logInModal.style.display = "none";
-    }
-    else if (event.target == signUpModal) {
-        signUpModal.style.display = "none";
-    }
-}
-   
-// Vanilla javascipt for tabs
-function openPage(pageName,elmnt,color) {
-    var i, tabcontent, tablinks;
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-    }
-    tablinks = document.getElementsByClassName("tablink");
-    for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].style.backgroundColor = "";
-    }
-    document.getElementById(pageName).style.display = "block";
-    elmnt.style.backgroundColor = color;
+  if (event.target == logInModal) {
+    logInModal.style.display = "none";
+  } else if (event.target == signUpModal) {
+    signUpModal.style.display = "none";
+  }
+};
 
+// Vanilla javascipt for tabs
+function openPage(pageName, elmnt, color) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].style.backgroundColor = "";
+  }
+  document.getElementById(pageName).style.display = "block";
+  elmnt.style.backgroundColor = color;
 }
 // Get the element with id="defaultOpen" and click on it
 $("#defaultOpen").click();
 
-
 /***********************************************
- * 
+ *
  * User authentication
- * 
+ *
  **********************************************/
 
 // Variable to store user data
@@ -193,19 +219,19 @@ var userData;
 
 // Initialize Firebase
 var config = {
-    apiKey: "AIzaSyAuXYrTrmD1F3UToiV9MGGMuDoArVTOSp8",
-    authDomain: "foodeaze-92954.firebaseapp.com",
-    databaseURL: "https://foodeaze-92954.firebaseio.com",
-    projectId: "foodeaze-92954",
-    storageBucket: "foodeaze-92954.appspot.com",
-    messagingSenderId: "549845192920"
+  apiKey: "AIzaSyAuXYrTrmD1F3UToiV9MGGMuDoArVTOSp8",
+  authDomain: "foodeaze-92954.firebaseapp.com",
+  databaseURL: "https://foodeaze-92954.firebaseio.com",
+  projectId: "foodeaze-92954",
+  storageBucket: "foodeaze-92954.appspot.com",
+  messagingSenderId: "549845192920"
 };
 firebase.initializeApp(config);
 
 // Listener for signin/signout
 firebase.auth().onAuthStateChanged(function(user) {
-    if (user) {
-      // User is signed in.
+  if (user) {
+    // User is signed in.
 
       firebase.database().ref("/users/"+user.uid).once("value",function(snap) {
         userData = snap.val()
@@ -214,15 +240,14 @@ firebase.auth().onAuthStateChanged(function(user) {
     })
     
     // Hide Sign Up/Login buttons
-    $("#loginWrapper").hide()
+    $("#loginWrapper").hide();
     // Show user name message and Logout button
-    $("#logOut").show()
-
-    } else {
-      // No user is signed in.
-      $("#loginWrapper").show()
-      $("#logOut").hide()
-    }
+    $("#logOut").show();
+  } else {
+    // No user is signed in.
+    $("#loginWrapper").show();
+    $("#logOut").hide();
+  }
 });
 
 // Function creates new user
@@ -269,7 +294,8 @@ function signIn(email, password) {
         console.log("LOGIN: FAIL")
         console.log(error.code);
         console.log(error.message);
-    })
+      }
+    );
 }
 
 // Function signs out current user, if any
@@ -282,19 +308,20 @@ function signOut() {
      }, function(error) {
         console.log(error.code);
         console.log(error.message);
-     });
+      }
+    );
 }
 
 // Listener on sign-up submit button to create new user
 $("#signcreateUser").on("click", function() {
-    event.preventDefault()
+  event.preventDefault();
 
-    // Get user info from form
-    let email = $("#email").val()
-    let password = $("#signpassword").val()
-    let fName = $("#signfname").val()
-    let lName = $("#signlname").val()
-    let zipCode = $("#signzipCode").val()
+  // Get user info from form
+  let email = $("#email").val();
+  let password = $("#signpassword").val();
+  let fName = $("#signfname").val();
+  let lName = $("#signlname").val();
+  let zipCode = $("#signzipCode").val();
 
     // Validate info
     let valid = true
@@ -332,12 +359,12 @@ $("#signcreateUser").on("click", function() {
 })
 
 $("#logsubmitUser").on("click", function() {
-    event.preventDefault()
+  event.preventDefault();
 
-    let email = $("#logemail").val()
-    let password = $("#logpassword").val()
+  let email = $("#logemail").val();
+  let password = $("#logpassword").val();
 
-    signIn(email, password)
-})
+  signIn(email, password);
+});
 
-$("#logoutBtn").on("click", signOut)
+$("#logoutBtn").on("click", signOut);
