@@ -17,11 +17,25 @@ let healthRestrictions = [];
 // Make API calls when food search form is submitted
 $("#foodSubmit").on("click", function(event) {
   event.preventDefault();
+
+    // Do not submit if no logged-in user
+    if (userData==undefined) {
+        console.log("ERROR: NO USER SIGNED IN")
+        return;
+    }
+
+    // Get info from food form
+    food = $("#exampleFoodInput").val();
+
+    // Do not submit if no text entered
+    if (food.length<1) {
+        console.log("ERROR: MUST ENTER FOOD TO SEARCH")
+        return;
+    }
+
   $(".col").show();
 
-  // Get info from food form
-  food = $("#exampleFoodInput").val();
-
+  
   if ($("#noNut").is(":checked")) {
     healthRestrictions.push("peanut-free");
   }
@@ -97,6 +111,7 @@ $("#foodSubmit").on("click", function(event) {
           .addClass("col recipeName")
           .text(r.label)
           .attr("href", r.url)
+          .attr("target", "_blank")
       );
       // Add health/diet labels
       let healthDesc = r.healthLabels.join(", ");
@@ -131,16 +146,16 @@ $("#foodSubmit").on("click", function(event) {
       //Create new table row
       let newRow = $("<div>").addClass("row restaurantRow");
 
-      let restaurantSearch = "https://www.google.com/" + res.restaurant_name;
+      let restaurantSearch = "https://www.google.com/search?q=" + res.restaurant_name;
 
       // Add restaurant name with hyperlink to restaurant website
       newRow.append(
-        $("<div>")
-          .addClass("col restaurantName")
-        //   .append(
-        //     $("<a>")
-        //         .attr("href", restaurantSearch)
-                .text(res.restaurant_name)
+
+        $("<a>")
+        .addClass("col restaurantName")
+            .attr("href", restaurantSearch)
+            .attr("target", "_blank")
+            .text(res.restaurant_name)
       );
 
       // Add restaurant cuisine type
@@ -166,6 +181,7 @@ $("#foodSubmit").on("click", function(event) {
           .append(
             $("<a>")
               .attr("href", mapSearch)
+              .attr("target", "_blank")
               .text(res.address_1 + ", " + res.city_town + ", " + res.state_province)
           )
       );
