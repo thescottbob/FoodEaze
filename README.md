@@ -16,6 +16,7 @@ FoodEaze provides the bridge for the gap of the two. Users can search for a food
 -deployment to GitHub Pages
 -User Input Validation
 
+
 # Technologies Used
 -HTML
 -CSS Bootstrap
