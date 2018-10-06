@@ -303,15 +303,26 @@ span.psw {
         .loginButton {
             background-color: #4CAF50;
             color: white;
-            padding: 8px 12px;
+            padding: 16px 15px;
             border-radius: 10px;
             border:none;
             cursor: pointer;
             width: 30%;
             font-size: 14px;
-            margin:auto;
+            margin:0 22px;;
         }
    
+        #nameDisplay{
+            background-color: #4CAF50;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 10px;
+            border:none;
+            cursor: pointer;
+            width: auto;
+            font-size: 14px;
+            margin:auto;
+        }
 }
 
 .refinements {
@@ -346,6 +357,7 @@ li {
     background-position: 50% 50%;
     background-repeat:   no-repeat;
     background-size:     cover;
+    margin: 5px;
 }
 /* style for returned data from edamam API */
 .recipeImg {
@@ -356,7 +368,7 @@ li {
     padding:20px;
 }
 .recipeName {
-    font-size: 35px;
+    font-size: 20px;
     font-family: 'Times New Roman', Times, serif;
     text-align: center;
     margin:auto;
@@ -391,7 +403,7 @@ li {
 .restaurantRow {
     border: solid black 2px;
     width: 90%;
-    margin:3%;
+    margin:4%;
     border-radius: 12px;
     
 }
@@ -404,7 +416,7 @@ li {
     
 }
 
-.menuItemDescription {
+.restaurantAddress {
     font-size: 20px;
     font-family: 'Times New Roman', Times, serif;
     text-align: center;
@@ -438,3 +450,17 @@ li {
     margin-right: 5px;
 }
 
+.restRow{
+    margin: 4%;
+}
+
+.submitButton {
+    margin-left: 15%;
+    color: #fff;
+    width: 66%;
+    height: 55px;
+    background-color: #007bff;
+    border-color: #007bff;
+    text-align: center;
+    font-size: 25px;
+}

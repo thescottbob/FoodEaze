@@ -55,7 +55,7 @@
               <input type="password" placeholder="Enter Password" name="psw" id="signpassword" required>
 
               <label for="zipcode"><b>Zip Code</b></label>
-              <input for="zipcode" placeholder="00000" name="zcode" id="signzipCode" required>
+              <input type="text" for="zipcode" placeholder="00000" name="zcode" id="signzipCode" required>
               <br><br>
 
               <button class="loginButton" type="submit" id="signcreateUser">Sign-Up</button>
@@ -85,10 +85,10 @@
               <input type="password" placeholder="Enter Password" name="psw" id="logpassword" required>
 
               <button class="loginButton" type="submit" id="logsubmitUser">Login</button>
-
+			<!-- 
               <label>
                 <input type="checkbox" checked="checked" name="remember" id="rememberMe"> Remember me
-              </label>
+              </label> -->
             </div>
 
             <div class="container" style="background-color:#f1f1f1">
@@ -151,7 +151,7 @@
         </span>
 
         <br><br>
-        <button type="submit" class="btn btn-primary" id="foodSubmit">Submit</button>
+        <button type="submit" class="btn btn-primary submitButton" id="foodSubmit">Feed Me!</button>
       </div>
     </form>
   
@@ -166,7 +166,6 @@
       <div id="Recipes" class="tabcontent">
         <div class="innerCard">
           <br>
-          <hr>
           <div class='row'>
             <div class="col">Recipe Image</div>
             <div class="col">Recipe Name</div>
@@ -197,8 +196,7 @@
       <div id="Restaurant" class="tabcontent">
         <div class="innerCard">
           <br>
-          <hr>
-          <div class='row'>
+          <div class='row restRow'>
             <div class="col">Restaurant Name</div>
             <div class="col">Cuisine Type</div>
             <div class="col">Menu Item</div>
