@@ -127,7 +127,6 @@ $("#foodSubmit").on("click", function(event) {
 
     for (let i = 0; i < restaurants.length; i++) {
       let res = restaurants[i];
-      let zipCode = $("#signzipCode").val();
 
       //Create new table row
       let newRow = $("<div>").addClass("row restaurantRow");
@@ -158,7 +157,7 @@ $("#foodSubmit").on("click", function(event) {
           .text(res.menu_item_name)
       );
 
-    let mapSearch ="https://www.google.com/maps/place/" + res.address_1 + " " + res.city_town + " " + res.state_province + " " + zipCode;
+      let mapSearch ="https://www.google.com/maps/place/" + res.address_1 + " " + res.city_town + " " + res.state_province;
 
       // Add restaurant address and make it into a hyperlink
       newRow.append(
@@ -167,7 +166,7 @@ $("#foodSubmit").on("click", function(event) {
           .append(
             $("<a>")
               .attr("href", mapSearch)
-              .text(res.address_1 + ", " + res.city_town + ", " + res.state_province + " " + zipCode)
+              .text(res.address_1 + ", " + res.city_town + ", " + res.state_province)
           )
       );
 
