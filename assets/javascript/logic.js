@@ -98,8 +98,8 @@ $("#foodSubmit").on("click", function (event) {
     })
 
     // Basic OpenMenu query
-    // var postalCode = $("#zipCode").val();
-    var postalCode = 98105;
+    var postalCode = userData.zipCode;
+    console.log(userData.zipCode)
     let openMenuURL = `https://openmenu.com/api/v2/search.php?key=${openMenuApiKey}&s=${food}&mi=1&postal_code=${postalCode}&country=US`;
   
   // OpenMenu API call
@@ -188,6 +188,9 @@ document.getElementById("defaultOpen").click();
  * 
  **********************************************/
 
+// Variable to store user data
+var userData;
+
 // Initialize Firebase
 var config = {
     apiKey: "AIzaSyAuXYrTrmD1F3UToiV9MGGMuDoArVTOSp8",
@@ -205,9 +208,9 @@ firebase.auth().onAuthStateChanged(function(user) {
       // User is signed in.
 
       firebase.database().ref("/users/"+user.uid).once("value",function(snap) {
-        let data = snap.val()
-        console.log(`Welcome ${data.fname} ${data.lname}`)
-        $("#nameDisplay").text(data.fname)      
+        userData = snap.val()
+        console.log(`Welcome ${userData.fname} ${userData.lname}`)
+        $("#nameDisplay").text(userData.fname)      
     })
     
     // Hide Sign Up/Login buttons
@@ -272,6 +275,9 @@ function signIn(email, password) {
 // Function signs out current user, if any
 function signOut() {
     firebase.auth().signOut().then(function() {
+        // Delete user data
+        userData = undefined;
+
         console.log("Logged out!")
      }, function(error) {
         console.log(error.code);
